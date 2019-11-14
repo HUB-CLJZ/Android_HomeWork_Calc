@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/linearLayout">
+    <!--界面一，搜索界面-->
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="#E4E4E4"
+        tools:layout_conversion_absoluteHeight="29dp"
+        tools:layout_editor_absoluteY="10dp"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_conversion_absoluteWidth="346dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/search" />
+
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="35dp"
+            android:paddingLeft="7dp"
+            android:gravity="left"
+            android:background="#EBEBEB"
+            android:text="篮球世界杯西班牙夺冠"
+            android:textColor="#848484"
+            android:paddingTop="2dp" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/check"
+        tools:layout_conversion_absoluteHeight="29dp"
+        tools:layout_editor_absoluteY="10dp"
+        tools:layout_editor_absoluteX="368dp"
+        tools:layout_conversion_absoluteWidth="26dp" />
+
+
+    <!--界面二，关注、推荐、热榜-->
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="关注"
+        android:textColor="#B6B6B6"
+        android:textSize="15dp"
+        tools:layout_conversion_absoluteHeight="41dp"
+        tools:layout_editor_absoluteY="39dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_conversion_absoluteWidth="121dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="推荐"
+        android:textColor="#B6B6B6"
+        android:textSize="15dp"
+        android:gravity="center"
+        tools:layout_conversion_absoluteHeight="41dp"
+        tools:layout_editor_absoluteY="39dp"
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_conversion_absoluteWidth="143dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="2dp"
+        android:text="热榜"
+        android:textColor="#B6B6B6"
+        android:textSize="15dp"
+        android:gravity="center"
+        tools:layout_conversion_absoluteHeight="41dp"
+        tools:layout_editor_absoluteY="39dp"
+        tools:layout_editor_absoluteX="264dp"
+        tools:layout_conversion_absoluteWidth="142dp" />
+
+
+    <!--界面三，界面分类-->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list1"
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_editor_absoluteY="80dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_conversion_absoluteWidth="84dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list2"
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_editor_absoluteY="80dp"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_conversion_absoluteWidth="71dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list3"
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_editor_absoluteY="80dp"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_conversion_absoluteWidth="69dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list4"
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_editor_absoluteY="80dp"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_conversion_absoluteWidth="70dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list5"
+        tools:layout_conversion_absoluteHeight="44dp"
+        tools:layout_editor_absoluteY="80dp"
+        tools:layout_editor_absoluteX="294dp"
+        tools:layout_conversion_absoluteWidth="82dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/add"
+        tools:layout_conversion_absoluteHeight="22dp"
+        tools:layout_editor_absoluteY="95dp"
+        tools:layout_editor_absoluteX="376dp"
+        tools:layout_conversion_absoluteWidth="21dp" />
+
+
+    <!--界面四，界面内容-->
+
+
+    <!--首页、会员、加号、通知、我的-->
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_page"
+        tools:layout_conversion_absoluteHeight="39dp"
+        tools:layout_editor_absoluteY="535dp"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_conversion_absoluteWidth="26dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/member"
+        tools:layout_conversion_absoluteHeight="36dp"
+        tools:layout_editor_absoluteY="535dp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_conversion_absoluteWidth="29dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/and_blue"
+        tools:layout_conversion_absoluteHeight="40dp"
+        tools:layout_editor_absoluteY="535dp"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_conversion_absoluteWidth="33dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/notice"
+        tools:layout_conversion_absoluteHeight="39dp"
+        tools:layout_editor_absoluteY="535dp"
+        tools:layout_editor_absoluteX="258dp"
+        tools:layout_conversion_absoluteWidth="26dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/me"
+        tools:layout_conversion_absoluteHeight="40dp"
+        tools:layout_editor_absoluteY="535dp"
+        tools:layout_editor_absoluteX="324dp"
+        tools:layout_conversion_absoluteWidth="24dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

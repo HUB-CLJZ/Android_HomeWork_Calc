@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3592C4"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@id/guideline_vertical1"
+        android:layout_height="@id/guideline_vertical4"
+        android:background="@drawable/panda"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_vertical3"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vertical1"
+        app:layout_constraintRight_toRightOf="@id/guideline_vertical2"
+        app:layout_constraintTop_toTopOf="@id/guideline_vertical4" />
+
+    <EditText
+        android:id="@+id/user_id"
+        android:layout_width="@id/guideline_vertical1"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:gravity="center"
+        android:hint="请输入账号"
+        app:layout_constraintBottom_toTopOf="@+id/user_password"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vertical1"
+        app:layout_constraintRight_toRightOf="@id/guideline_vertical2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.618"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/user_password"
+        android:layout_width="@id/guideline_vertical1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="请输入密码"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vertical1"
+        app:layout_constraintRight_toRightOf="@id/guideline_vertical2"
+        app:layout_constraintTop_toBottomOf="@+id/user_id" />
+
+    <Button
+        android:id="@+id/btn_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#40B6E0"
+        android:text="登录"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_vertical1"
+        app:layout_constraintRight_toRightOf="@id/guideline_vertical2"
+        app:layout_constraintTop_toBottomOf="@+id/user_password" />
+</androidx.constraintlayout.widget.ConstraintLayout>

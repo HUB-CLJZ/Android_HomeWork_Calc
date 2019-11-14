@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/et_path"
+        android:layout_width="321dp"
+        android:layout_height="63dp"
+        android:background="#EBEBEB"
+        android:text="http://b.hiphotos.baidu.com/image/pic/item/908fa0ec08fa513db777cf78376d55fbb3fbd9b3.jpg"
+        android:inputType="textUri"
+        android:textColor="#696969"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btn_browse"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </EditText>
+
+    <Button
+        android:text="浏览"
+        android:id="@+id/btn_browse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="click"
+        android:textColor="#696969"
+        app:layout_constraintLeft_toRightOf="@+id/et_path"
+        app:layout_constraintTop_toTopOf="@id/et_path"
+        app:layout_constraintBottom_toBottomOf="@id/et_path" />
+
+    <ImageView
+        android:id="@+id/iv_pic"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        app:layout_constraintLeft_toLeftOf="@id/et_path"
+        app:layout_constraintRight_toRightOf="@id/btn_browse"
+        app:layout_constraintTop_toBottomOf="@id/btn_browse"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

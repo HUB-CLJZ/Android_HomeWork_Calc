@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ActionAndData</string>
+    <string name="call">打电话</string>
+    <string name="send">发短信</string>
+</resources>

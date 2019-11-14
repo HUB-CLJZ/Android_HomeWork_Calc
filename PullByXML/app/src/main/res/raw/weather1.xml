@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infos>
+    <city id="bj">
+        <temp>26摄氏度</temp>
+        <weather>5月11日 多云转阴</weather>
+        <name>北京</name>
+        <pm>800</pm>
+        <wind>南风7-8级</wind>
+    </city>
+    <city id="sh">
+        <temp>20摄氏度</temp>
+        <weather>5月12日 雷阵雨</weather>
+        <name>上海</name>
+        <pm>80</pm>
+        <wind>南风3-4级</wind>
+    </city>
+    <city id="gz">
+        <temp>6摄氏度</temp>
+        <weather>5月13日 暴雨</weather>
+        <name>广州</name>
+        <pm>100</pm>
+        <wind>南风7-8级</wind>
+    </city>
+</infos>

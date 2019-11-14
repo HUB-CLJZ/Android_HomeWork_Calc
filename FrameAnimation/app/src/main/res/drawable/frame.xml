@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/people_01"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/people_02"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/people_03"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/people_04"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/people_05"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/people_06"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/people_07"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/people_08"
+        android:duration="50" />
+</animation-list>

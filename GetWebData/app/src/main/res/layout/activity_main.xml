@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/send_request_get"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送请求(get)"
+        app:layout_constraintTop_toTopOf="parent">
+    </Button>
+
+    <Button
+        android:id="@+id/send_request_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送请求(post)"
+        app:layout_constraintTop_toBottomOf="@id/send_request_get">
+    </Button>
+
+    <ListView
+        android:id="@+id/response_text"
+        android:layout_width="411dp"
+        android:layout_height="646dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/send_request_post"
+        tools:ignore="MissingConstraints">
+
+    </ListView>
+</androidx.constraintlayout.widget.ConstraintLayout>
