@@ -13,7 +13,7 @@ public class FileSaveQQ {
     //保存信息到文件
     public static boolean savaUserInfo(Context context, String number, String password) {
         try {
-            FileOutputStream fos = context.openFileOutput("data.txt",Context.MODE_PRIVATE);
+            FileOutputStream fos = context.openFileOutput("data.txt",Context.MODE_APPEND);
             fos.write((number+":"+password).getBytes());
             fos.close();
             return true;

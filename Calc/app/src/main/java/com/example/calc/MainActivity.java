@@ -2,13 +2,14 @@ package com.example.calc;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.Map;
 /**
  * @Package:        com.example.calc
  * @ClassName:      MainActivity
@@ -46,14 +47,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static Button btnZero;
     private static Button btnPoint;
     private static Button btnEquals;
+    private static Button btnDelete;
     /**
      * result:用于记录算式
      * resultShow:用于显示算是
      * regular：正则匹配的规则，用于找出运算符
+     * userInfo：从文件中取出算数结果
      */
     private static String result ="";
     private static String resultShow = "";
     private static String regular = "[\\+\\-\\*//%]";
+    private static Map<String,String > userInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,14 +65,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         init();
+        showResult();
     }
-    //当land和port不同时，需要用一下方法保证横屏时数据不丢失，注意，init方法不要调用
-   /* @Override
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        init();
+        saveInfo("");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    /**
+     * @description:当发生屏幕旋转时的处理
+     * @author: CLJZ
+     * @date: 2019/11/18  13:45
+     * @param:
+     * @return:
+     */
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setContentView(R.layout.activity_main);
-    }*/
-
+        String screen = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ? "横向屏幕": "竖向屏幕";
+        Toast.makeText(this, "屏幕方向：" + screen, Toast.LENGTH_SHORT).show();
+        init();
+        showResult();
+    }
+    /**
+     * @description:当程序结束，清空文件内容
+     * @author: CLJZ
+     * @date: 2019/11/18  21:23
+     * @param: []
+     * @return: void
+     */
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        saveInfo("");
+        showResult();
+    }
     /**
      * @description:对控件进行初始化
      * @author: CLJZ
@@ -101,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //基本的操作
         btnAc = findViewById(R.id.btn_ac);
-        Button btnDelete = findViewById(R.id.btn_delete);
+        btnDelete = findViewById(R.id.btn_delete);
         btnJump = findViewById(R.id.btn_jump);
         btnEquals = findViewById(R.id.btn_equals);
 
@@ -131,7 +171,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnJump.setOnClickListener(this);
         btnEquals.setOnClickListener(this);
     }
-
     /**
      * @description:对每一个按钮按下的事件进行处理，得到算数结果
      * @author: CLJZ
@@ -147,50 +186,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (view.getId() == R.id.btn_one) {
                 result += "1";
                 resultShow += "1";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             } else if (view.getId() == R.id.btn_two) {
                 result += "2";
                 resultShow += "2";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             } else if (view.getId() == R.id.btn_three) {
                 result += "3";
                 resultShow += "3";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             } else if (view.getId() == R.id.btn_four) {
                 result += "4";
                 resultShow += "4";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             } else if (view.getId() == R.id.btn_five) {
                 result += "5";
                 resultShow += "5";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             }else if (view.getId() == R.id.btn_six) {
                 result += "6";
                 resultShow += "6";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             }else if (view.getId() == R.id.btn_seven) {
                 result += "7";
                 resultShow += "7";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             } else if (view.getId() == R.id.btn_eight) {
                 result += "8";
                 resultShow += "8";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             } else if (view.getId() == R.id.btn_nine) {
                 result += "9";
                 resultShow += "9";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             } else if (view.getId() == R.id.btn_zero) {
                 result += "0";
                 resultShow += "0";
                 //除法运算分母为0的情况
-                if (resultShow.length()==1) {
-                    displayPanel.setText(resultShow);
+                if (resultShow.length() == 1) {
+                    saveInfo(resultShow);
                 } else if (result.charAt(result.length()-2) == '/') {
                     displayPanel.setText("错误");
                 } else {
-                    displayPanel.setText(resultShow);
+                    saveInfo(resultShow);
                 }
+                showResult();
             } else if (view.getId() == R.id.btn_add ) {
                 if (!(result.endsWith("-") || result.endsWith("*") ||result.endsWith("/"))) {
                     duplicate("+","+");
@@ -212,9 +261,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     duplicate("×", "*");
                 }
             } else if (view.getId() == R.id.btn_percentage) {
+                saveInfo(resultShow);
                 result += "%";
                 resultShow += "%";
-                displayPanel.setText(resultShow);
+                showResult();
             } else if (view.getId() == R.id.btn_point) {
                 result += ".";
                 resultShow += ".";
@@ -223,12 +273,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 for (String s : str) {
                     try {
                         Double.valueOf(s);
-                        displayPanel.setText(resultShow);
+                        saveInfo(resultShow);
                     } catch (NumberFormatException e) {
                         if (resultShow.length() > 0) {
                             StringBuilder sb = new StringBuilder();
                             resultShow = sb.append(resultShow).deleteCharAt(resultShow.length() - 1).toString();
-                            displayPanel.setText(resultShow);
+                            saveInfo(resultShow);
                         }
                         if (result.length() > 0) {
                             StringBuilder sb = new StringBuilder();
@@ -236,11 +286,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 }
+                showResult();
             } else if (view.getId() == R.id.btn_ac) {
                 result = "";
                 resultShow ="";
-                displayPanel.setText(resultShow);
+                saveInfo(resultShow);
+                showResult();
             } else if (view.getId() == R.id.btn_delete) {
+                userInfo = FileSaveResult.getResultInfo(this);
+                if (userInfo != null) {
+                    displayPanel.setText(userInfo.get("result"));
+                }
                 if (resultShow.length() > 0) {
                     StringBuilder sb = new StringBuilder();
                     resultShow = sb.append(resultShow).deleteCharAt(resultShow.length()-1).toString();
@@ -258,6 +314,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 result = "";
                 resultShow ="";
+                saveInfo("");
             } else if (view.getId() == R.id.btn_jump) {
                 //设置横竖屏切换
                 if( getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
@@ -277,8 +334,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             resultShow ="";
             displayPanel.setText(result);
         }
-        displayPanel =  findViewById( R.id.displayPanel) ;
-        displayPanel.setMovementMethod(ScrollingMovementMethod.getInstance());
     }
 
     /**
@@ -305,5 +360,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         displayPanel.setText(resultShow);
+    }
+    /**
+     * @description:保存输入数据的方法
+     * @author: CLJZ
+     * @date: 2019/11/18  15:07
+     * @param: []
+     * @return: void
+     */
+    private void saveInfo(String result) {
+        //使用SharedPreferences
+        boolean isSavaSuccess = FileSaveResult.savaResultInfo(this,result);
+        if (isSavaSuccess) {
+            //Toast.makeText(MainActivity.this, "保存成功",Toast.LENGTH_SHORT).show();
+        } else {
+            //Toast.makeText(MainActivity.this, "保存失败",Toast.LENGTH_SHORT).show();
+        }
+    }
+    /**
+     * @description:显示的方法，用来显示从文件中读取到的算式
+     * @author: CLJZ
+     * @date: 2019/11/18  21:07
+     * @param: []
+     * @return: void
+     */
+    private void showResult() {
+        userInfo = FileSaveResult.getResultInfo(this);
+        if (userInfo != null) {
+            displayPanel.setText(userInfo.get("result"));
+        }
     }
 }

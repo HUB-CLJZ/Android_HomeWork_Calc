@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/et_name"
-        android:text="data/data/com.example.myapplication/a.mp3"
+        android:text="/data/data/com.example.playvideo/烟花易冷 (Live) - 林志炫.mp3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
