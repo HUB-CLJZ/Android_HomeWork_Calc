@@ -1,9 +1,11 @@
 package com.example.calc;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -57,37 +59,59 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static String resultShow = "";
     private static String regular = "[\\+\\-\\*//%]";
     private static String sum = "";
+    private Handler handler = new Handler();
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            Log.d("ttt", "run: 线程启动");
+            handler.post(runnable);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //全屏显示
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+        handler.post(runnable);
         init();
-        if (savedInstanceState != null) {
-            resultShow = savedInstanceState.getString("result");
-            displayPanel.setText(resultShow +"\n" +"="+sum);
-        }
     }
+    //销毁程序时，销毁线程
+    @Override
+    protected void onDestroy() {
+        handler.removeCallbacks(runnable);
+        Log.d("ttt", "run:线程销毁 ");
+        super.onDestroy();
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("result",resultShow);
     }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        result = savedInstanceState.getString("result");
+    }
     /**
-     * @description:当发生屏幕旋转时的处理
+     * @description:当发生屏幕旋转时显示当前屏幕的状态
      * @author: CLJZ
      * @date: 2019/11/18  13:45
      * @param:
      * @return:
      */
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        setContentView(R.layout.activity_main);
-        String screen = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ? "横向屏幕": "竖向屏幕";
-        Toast.makeText(this, "屏幕方向：" + screen, Toast.LENGTH_SHORT).show();
-    }
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//        Toast.makeText(this, "onConfigurationChanged", Toast.LENGTH_SHORT).show();
+//        setContentView(R.layout.activity_main);
+//        String screen = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ? "横向屏幕": "竖向屏幕";
+//        Toast.makeText(this, "屏幕方向：" + screen, Toast.LENGTH_SHORT).show();
+//    }
     /**
      * @description:对控件进行初始化
      * @author: CLJZ
@@ -149,6 +173,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDelete.setOnClickListener(this);
         btnJump.setOnClickListener(this);
         btnEquals.setOnClickListener(this);
+
+        displayPanel.setText(resultShow);
     }
     /**
      * @description:对每一个按钮按下的事件进行处理，得到算数结果
@@ -321,4 +347,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         displayPanel.setText(resultShow);
     }
+
+
 }

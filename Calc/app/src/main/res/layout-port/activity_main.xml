@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:id="@+id/land"
     android:background="#f0f0f0"
-    android:id="@+id/port"
     tools:context=".MainActivity"
     tools:ignore="MissingDefaultResource">
     <!--考虑到部分as不兼容约束布局，故采用线性布局，相对布局，表格布局完成功能-->
