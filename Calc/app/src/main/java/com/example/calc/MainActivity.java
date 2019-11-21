@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static Button btnDelete;
     private static RelativeLayout relativeLayout;
     private static TextView timer;
+    private static Thread c_trd = null;
+    private Handler childHandler;
     /**
      * result:用于记录算式
      * resultShow:用于显示算是
@@ -74,40 +76,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static String[] colorBackground = {"#FFFF66","#FFCC00","#FF33FF","#66FF33","#66CCFF"};
     private static String[] colorFont = {"#FF0000","#FFFF00","#00CC00","#FFFFFF","#000000"};
     @SuppressLint("HandlerLeak")
-    private Handler childHandler = new Handler() {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            if (msg.what == msgChild) {
-                timer.setVisibility(View.VISIBLE);
-                timer.setText(time+"s");
-                if (parentHandler.obtainMessage(msg.what,msg.obj) != null) {
-                    Message _msg = new Message();
-                    _msg.what = msg.what;
-                    _msg.obj= msg.obj;
-                    msg = _msg;
-                }
-                parentHandler.sendMessage(msg);
-            } else if (msg.what == msgChildComplete) {
-                timer.setVisibility(View.INVISIBLE);
-            } else if (msg.what == msgParent) {
-                String color = colorFont[(int)(Math.random()*colorFont.length)];
-                timer.setTextColor(Color.parseColor(color));
-            }
-        }
-    };
-
-    @SuppressLint("HandlerLeak")
     private Handler parentHandler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
+            Message msg_ui = Message.obtain();
+            msg_ui.what = msgParent;
             if (msg.what == msgChild) {
                 String color = colorBackground[(int)(Math.random()*colorBackground.length)];
-                relativeLayout.setBackgroundColor(Color.parseColor(color));
+                String colorText = colorFont[(int)(Math.random()*colorFont.length)];relativeLayout.setBackgroundColor(Color.parseColor(color));
                 displayPanel.setBackgroundColor(Color.parseColor(color));
-            } else  if (msg.what == msgParent) {
-                parentHandler.sendMessage(msg);
+                timer.setTextColor(Color.parseColor(colorText));
+                timer.setVisibility(View.VISIBLE);
+                timer.setText(time+"s");
+                childHandler.sendMessage(msg_ui);
             }
-
+            else if (msg.what == msgChildComplete) {
+                timer.setVisibility(View.INVISIBLE);
+            } else {
+                displayPanel.setBackgroundColor(Color.parseColor("#F4F4F4"));
+                relativeLayout.setBackgroundColor(Color.parseColor("#F4F4F4"));
+                childHandler.removeMessages(msgChild);
+                parentHandler.removeMessages(msgParent);
+            }
         }
     };
 
@@ -119,13 +109,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         init();
-        parentCountDown();
+        //parentCountDown();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("result",resultShow);
+        //outState.putString("thread",m_trd.);
     }
 
     @Override
@@ -321,13 +312,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else if (view.getId() == R.id.btn_ac) {
-                time = 0;
                 sum = "";
                 result = "";
                 resultShow ="";
                 displayPanel.setText(resultShow);
                 displayPanel.setBackgroundColor(Color.parseColor("#F4F4F4"));
                 relativeLayout.setBackgroundColor(Color.parseColor("#F4F4F4"));
+                timer.setText("");
+                //time = 0;
             } else if (view.getId() == R.id.btn_delete) {
                 displayPanel.setText(resultShow);
                 if (resultShow.length() > 0) {
@@ -342,8 +334,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else if (view.getId() == R.id.btn_equals) {
                 if (resultShow.length() > 0) {
                     sum = CalculatorUtils.calculate(result);
-                    countDown();
                     displayPanel.setText(resultShow +"\n" +"="+sum);
+                    countDown();
                 }
                 result = sum;
             } else if (view.getId() == R.id.btn_jump) {
@@ -399,55 +391,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @param: []
      * @return: void
      */
-    private void countDown() {
-
+    private synchronized void countDown() {
         time = Double.valueOf(sum).intValue();
-        Log.d("ttt", "countDown: "+time);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Looper.prepare();
-                synchronized (MainActivity.class) {
-                    while (time > 0) {
-                        try {
-                            Thread.sleep(1000);
-                            Message message = new Message();
-                            message.what = msgChild;
-                            childHandler.sendMessage(message);
+        Log.d("LINJUNFENG","countDown被调用");
+        if (c_trd == null || (!c_trd.isAlive() && c_trd != null)) {
+            c_trd = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d("LINJUNFENG","countDown里的线程被创建");
+                    Message msg = Message.obtain();
+                    msg.what = msgChild;
+                    msg.arg1 = time;
+                    parentHandler.sendMessage(msg);
+                    Looper.prepare();
+                    childHandler = new Handler() {
+                        @Override
+                        public void handleMessage(@NonNull Message msg) {
                             time--;
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            super.handleMessage(msg);
+                            if (time >= 0) {
+                                //Log.d("LINJUNFENG", "handleMessage: "+time);
+                                Message message = Message.obtain();
+                                message.what = msgChild;
+                                message.arg1 = time;
+                                parentHandler.sendMessageDelayed(message,1000);
+                            }
                         }
-                    }
-                    Message message = childHandler.obtainMessage();
-                    message.what = msgChildComplete;
-                    childHandler.sendMessage(message);
+                    };
+                    Looper.loop();
                 }
-                Looper.loop();
-            }
-        }).start();
-    }
-    /**
-     * @description:颜色变换的方法
-     * @author: CLJZ
-     * @date: 2019/11/20  23:15
-     * @param: []
-     * @return: void
-     */
-    private void parentCountDown() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Looper.prepare();
-                synchronized (MainActivity.class) {
-                    Message message = new Message();
-                    message.what = msgParent;
-                    childHandler.sendMessage(message);
-                }
-                Looper.loop();
-            }
-        }).start();
-        displayPanel.setBackgroundColor(Color.parseColor("#F4F4F4"));
-        relativeLayout.setBackgroundColor(Color.parseColor("#F4F4F4"));
+            });
+            c_trd.start();
+        }
     }
 }
