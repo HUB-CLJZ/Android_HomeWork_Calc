@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView main_time_tvbig;
     private TextView title;
     private EditText main_et_time;
-    private int time = 10;
+    private static int time = 0;
     /**
      * @description:创建Handler处理计时结果和计时信息
      * @author: CLJZ

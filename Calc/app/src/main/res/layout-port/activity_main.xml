@@ -15,7 +15,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:id="@+id/bg"
         android:layout_weight="0.618">
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="#579242"
+            android:textSize="45dp"
+            android:visibility="invisible"
+            android:text="计时器">
+        </TextView>
+
+
         <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_alignParentBottom="true"
@@ -34,6 +49,7 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="30dp">
             </TextView>
+
         </HorizontalScrollView>
     </RelativeLayout>
 

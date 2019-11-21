@@ -3,12 +3,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 /**
@@ -49,24 +53,64 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static Button btnPoint;
     private static Button btnEquals;
     private static Button btnDelete;
+    private static RelativeLayout relativeLayout;
+    private static TextView timer;
     /**
      * result:用于记录算式
      * resultShow:用于显示算是
      * regular：正则匹配的规则，用于找出运算符
      * sum：运算结果
+     * colorBackground:显示面板的背景颜色
+     * colorFont:倒计时器的字体颜色
      */
     private static String result ="";
     private static String resultShow = "";
     private static String regular = "[\\+\\-\\*//%]";
     private static String sum = "";
-    private Handler handler = new Handler();
-    private Runnable runnable = new Runnable() {
+    private static int time = 0;
+    private static int msgParent = 0x001;
+    private static int msgChild = 0x002;
+    private static int msgChildComplete = 0x003;
+    private static String[] colorBackground = {"#FFFF66","#FFCC00","#FF33FF","#66FF33","#66CCFF"};
+    private static String[] colorFont = {"#FF0000","#FFFF00","#00CC00","#FFFFFF","#000000"};
+    @SuppressLint("HandlerLeak")
+    private Handler childHandler = new Handler() {
         @Override
-        public void run() {
-            Log.d("ttt", "run: 线程启动");
-            handler.post(runnable);
+        public void handleMessage(@NonNull Message msg) {
+            if (msg.what == msgChild) {
+                timer.setVisibility(View.VISIBLE);
+                timer.setText(time+"s");
+                if (parentHandler.obtainMessage(msg.what,msg.obj) != null) {
+                    Message _msg = new Message();
+                    _msg.what = msg.what;
+                    _msg.obj= msg.obj;
+                    msg = _msg;
+                }
+                parentHandler.sendMessage(msg);
+            } else if (msg.what == msgChildComplete) {
+                timer.setVisibility(View.INVISIBLE);
+            } else if (msg.what == msgParent) {
+                String color = colorFont[(int)(Math.random()*colorFont.length)];
+                timer.setTextColor(Color.parseColor(color));
+            }
         }
     };
+
+    @SuppressLint("HandlerLeak")
+    private Handler parentHandler = new Handler() {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            if (msg.what == msgChild) {
+                String color = colorBackground[(int)(Math.random()*colorBackground.length)];
+                relativeLayout.setBackgroundColor(Color.parseColor(color));
+                displayPanel.setBackgroundColor(Color.parseColor(color));
+            } else  if (msg.what == msgParent) {
+                parentHandler.sendMessage(msg);
+            }
+
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,16 +118,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //全屏显示
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
-        handler.post(runnable);
         init();
-    }
-    //销毁程序时，销毁线程
-    @Override
-    protected void onDestroy() {
-        handler.removeCallbacks(runnable);
-        Log.d("ttt", "run:线程销毁 ");
-        super.onDestroy();
+        parentCountDown();
     }
 
     @Override
@@ -109,6 +145,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        super.onConfigurationChanged(newConfig);
 //        Toast.makeText(this, "onConfigurationChanged", Toast.LENGTH_SHORT).show();
 //        setContentView(R.layout.activity_main);
+//        init();
+//        cliskMothod();
 //        String screen = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ? "横向屏幕": "竖向屏幕";
 //        Toast.makeText(this, "屏幕方向：" + screen, Toast.LENGTH_SHORT).show();
 //    }
@@ -147,6 +185,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDelete = findViewById(R.id.btn_delete);
         btnJump = findViewById(R.id.btn_jump);
         btnEquals = findViewById(R.id.btn_equals);
+        relativeLayout = findViewById(R.id.bg);
+        timer = findViewById(R.id.timer);
 
         //设置监听器
         btnZero.setOnClickListener(this);
@@ -173,7 +213,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDelete.setOnClickListener(this);
         btnJump.setOnClickListener(this);
         btnEquals.setOnClickListener(this);
-
         displayPanel.setText(resultShow);
     }
     /**
@@ -282,9 +321,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else if (view.getId() == R.id.btn_ac) {
+                time = 0;
+                sum = "";
                 result = "";
                 resultShow ="";
                 displayPanel.setText(resultShow);
+                displayPanel.setBackgroundColor(Color.parseColor("#F4F4F4"));
+                relativeLayout.setBackgroundColor(Color.parseColor("#F4F4F4"));
             } else if (view.getId() == R.id.btn_delete) {
                 displayPanel.setText(resultShow);
                 if (resultShow.length() > 0) {
@@ -299,6 +342,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else if (view.getId() == R.id.btn_equals) {
                 if (resultShow.length() > 0) {
                     sum = CalculatorUtils.calculate(result);
+                    countDown();
                     displayPanel.setText(resultShow +"\n" +"="+sum);
                 }
                 result = sum;
@@ -348,5 +392,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         displayPanel.setText(resultShow);
     }
 
+    /**
+     * @description:倒计时的方法，显示倒计时
+     * @author: CLJZ
+     * @date: 2019/11/20  14:21
+     * @param: []
+     * @return: void
+     */
+    private void countDown() {
 
+        time = Double.valueOf(sum).intValue();
+        Log.d("ttt", "countDown: "+time);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                synchronized (MainActivity.class) {
+                    while (time > 0) {
+                        try {
+                            Thread.sleep(1000);
+                            Message message = new Message();
+                            message.what = msgChild;
+                            childHandler.sendMessage(message);
+                            time--;
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    Message message = childHandler.obtainMessage();
+                    message.what = msgChildComplete;
+                    childHandler.sendMessage(message);
+                }
+                Looper.loop();
+            }
+        }).start();
+    }
+    /**
+     * @description:颜色变换的方法
+     * @author: CLJZ
+     * @date: 2019/11/20  23:15
+     * @param: []
+     * @return: void
+     */
+    private void parentCountDown() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                synchronized (MainActivity.class) {
+                    Message message = new Message();
+                    message.what = msgParent;
+                    childHandler.sendMessage(message);
+                }
+                Looper.loop();
+            }
+        }).start();
+        displayPanel.setBackgroundColor(Color.parseColor("#F4F4F4"));
+        relativeLayout.setBackgroundColor(Color.parseColor("#F4F4F4"));
+    }
 }
