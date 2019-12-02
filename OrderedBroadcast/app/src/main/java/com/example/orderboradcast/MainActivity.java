@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     public void send(View view) {
         Intent intent = new Intent();
         intent.setAction("Intercept_Stitch");
+        intent.setPackage(getPackageName());
         sendOrderedBroadcast(intent,null);
 
         //必须接受的广播

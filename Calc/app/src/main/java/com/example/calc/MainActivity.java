@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static TextView timer;
     private static Thread c_trd = null;
     private Handler childHandler;
+    private static MinerThread minerThread = null;
     /**
      * result:用于记录算式
      * resultShow:用于显示算是
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static int msgParent = 0x001;
     private static int msgChild = 0x002;
     private static int msgChildComplete = 0x003;
+    private static Handler minHandler;
     private static String[] colorBackground = {"#FFFF66","#FFCC00","#FF33FF","#66FF33","#66CCFF"};
     private static String[] colorFont = {"#FF0000","#FFFF00","#00CC00","#FFFFFF","#000000"};
     @SuppressLint("HandlerLeak")
@@ -89,10 +91,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 timer.setVisibility(View.VISIBLE);
                 timer.setText(time+"s");
                 childHandler.sendMessage(msg_ui);
-            }
-            else if (msg.what == msgChildComplete) {
+            } else if (msg.what == msgChildComplete) {
                 timer.setVisibility(View.INVISIBLE);
-            } else {
+            } else if (msg.what == MinerThread.msgMiner) {
+                Log.d("LINJUNFENG", "shushu: "+msg.arg1);
+            }
+            else {
                 displayPanel.setBackgroundColor(Color.parseColor("#F4F4F4"));
                 relativeLayout.setBackgroundColor(Color.parseColor("#F4F4F4"));
                 childHandler.removeMessages(msgChild);
@@ -101,15 +105,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //全屏显示
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        if (minerThread == null || ( minerThread != null   && !minerThread.isAlive())) {
+            Log.d("LINJUNFENG", "MinerThread:创建 ");
+            minerThread = new MinerThread(3);
+        }
         init();
-        //parentCountDown();
     }
 
     @Override
@@ -124,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onRestoreInstanceState(savedInstanceState);
         result = savedInstanceState.getString("result");
     }
+
     /**
      * @description:当发生屏幕旋转时显示当前屏幕的状态
      * @author: CLJZ
@@ -134,10 +141,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    @Override
 //    public void onConfigurationChanged(Configuration newConfig) {
 //        super.onConfigurationChanged(newConfig);
-//        Toast.makeText(this, "onConfigurationChanged", Toast.LENGTH_SHORT).show();
+//        //Toast.makeText(this, "onConfigurationChanged", Toast.LENGTH_SHORT).show();
 //        setContentView(R.layout.activity_main);
 //        init();
-//        cliskMothod();
 //        String screen = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE ? "横向屏幕": "竖向屏幕";
 //        Toast.makeText(this, "屏幕方向：" + screen, Toast.LENGTH_SHORT).show();
 //    }
@@ -383,7 +389,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         displayPanel.setText(resultShow);
     }
-
     /**
      * @description:倒计时的方法，显示倒计时
      * @author: CLJZ
@@ -391,14 +396,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @param: []
      * @return: void
      */
-    private synchronized void countDown() {
+    private void countDown() {
         time = Double.valueOf(sum).intValue();
         Log.d("LINJUNFENG","countDown被调用");
-        if (c_trd == null || (!c_trd.isAlive() && c_trd != null)) {
+        //调用矿工线程
+        minerThread.start();
+
+        if (c_trd == null || (c_trd != null  && !c_trd.isAlive())) {
             c_trd = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Log.d("LINJUNFENG","countDown里的线程被创建");
+                    Log.d("LINJUNFENG","thread:"+Thread.currentThread().getId());
                     Message msg = Message.obtain();
                     msg.what = msgChild;
                     msg.arg1 = time;
@@ -408,7 +416,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void handleMessage(@NonNull Message msg) {
                             time--;
-                            super.handleMessage(msg);
                             if (time >= 0) {
                                 //Log.d("LINJUNFENG", "handleMessage: "+time);
                                 Message message = Message.obtain();

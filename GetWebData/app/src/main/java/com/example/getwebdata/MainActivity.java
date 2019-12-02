@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         list = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             Map<String, Object> map = new HashMap();
-            map.put("user_image", user_images[i]);
+            //map.put("user_image", user_images[i]);
             map.put("user_name", user_names[i]);
             map.put("password", passwords[i]);
             list.add(map);
