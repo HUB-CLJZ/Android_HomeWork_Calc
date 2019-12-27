@@ -33,8 +33,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-145" />
-    <option name="y" value="233" />
+    <option name="x" value="192" />
+    <option name="y" value="116" />
     <option name="width" value="1555" />
     <option name="height" value="885" />
   </component>
@@ -43,9 +43,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -144,7 +144,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-116" y="187" width="1244" height="708" extended-state="0" />
+    <frame x="154" y="93" width="1244" height="708" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2831126" />

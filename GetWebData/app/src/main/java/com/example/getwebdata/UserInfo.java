@@ -4,6 +4,15 @@ public class UserInfo {
     private String user_name;
     private String password;
     private String user_image;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getUser_name() {
         return user_name;

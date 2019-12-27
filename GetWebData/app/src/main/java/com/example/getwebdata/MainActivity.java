@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -13,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -46,21 +47,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId() == R.id.send_request_get) {
             sendRequestWithOkHttpForGet();
             initDataList(user_images,user_names,passwords);
-            // key值数组，适配器通过key值取value，与列表项组件一一对应
-            String[] from = {"user_image","user_name","password"};
-            // 列表项组件Id 数组
-            int[] to = { R.id.user_image, R.id.user_name, R.id.password };
-            /**
-             * SimpleAdapter(Context context, List<?xtendMap<String?>> data, int resource, String[] from, int[] to)
-             * context：activity界面类
-             * data 数组内容是map的集合数据
-             * resource 列表项文件
-             * from map key值数组
-             * to 列表项组件id数组
-             * from与to一一对应，适配器绑定数据
-             */
-            final SimpleAdapter adapter = new SimpleAdapter(this, list, R.layout.view_iteam, from, to);
-            listView.setAdapter(adapter);
+
+           /*
+                // key值数组，适配器通过key值取value，与列表项组件一一对应
+                String[] from = {"user_image","user_name","password"};
+                // 列表项组件Id 数组
+                int[] to = { R.id.user_image, R.id.user_name, R.id.password };
+                *//**
+                 * SimpleAdapter(Context context, List<?xtendMap<String?>> data, int resource, String[] from, int[] to)
+                 * context：activity界面类
+                 * data 数组内容是map的集合数据
+                 * resource 列表项文件
+                 * from map key值数组
+                 * to 列表项组件id数组
+                 * from与to一一对应，适配器绑定数据
+                 *//*
+                final SimpleAdapter adapter = new SimpleAdapter(this, list, R.layout.view_iteam, from, to);
+
+                listView.setAdapter(adapter);
+            */
+            final NewsAdapter newsAdapter = new NewsAdapter(this,user_images,user_names,passwords);
+            listView.setAdapter(newsAdapter);
         } else if (v.getId() == R.id.send_request_post) {
             sendRequestWithOkHttpForPost();
             initDataList(user_images,user_names,passwords);
@@ -88,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 try {
                     OkHttpClient client = new OkHttpClient();
                     Request request = new Request.Builder()
-                            .url("http://106.52.109.143:15415/admin/getAll")
+                            .url("http://www.mocky.io/v2/5de51f092e00006b0031fbf1")
                             .build();
                     Response response = client.newCall(request).execute();
                     if (!response.isSuccessful()) {
@@ -110,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //第二步创建RequestBody（Form表达）
             RequestBody body = new FormBody.Builder().add("username","admin").add("password","123456").build();
             //第三步创建Rquest
-            Request request = new Request.Builder().url("http://106.52.109.143:15415/admin/getAll").post(body).build();
+            Request request = new Request.Builder().url("http://www.mocky.io/v2/5de51f092e00006b0031fbf1").post(body).build();
             //第四步创建call回调对象
             final Call call = client.newCall(request);
             //第五步发起请求dd
@@ -162,11 +169,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initDataList(String[] user_images,String[]  user_names, String[] passwords) {
         list = new ArrayList<>();
         for (int i = 0; i < count; i++) {
+            //下载图片到本地
             Map<String, Object> map = new HashMap();
-            //map.put("user_image", user_images[i]);
+            //MoiveListFragment为当前类
+            map.put("user_image",user_images[i]);
             map.put("user_name", user_names[i]);
             map.put("password", passwords[i]);
             list.add(map);
         }
     }
+
 }

@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //通过代码的方式播放动画
-        playAnimation();
+        //playAnimation();
 /*-----------------------------------------------------------------------------------------------------*/
         //通过设置布局属性播放动画
-        //init();
+        init();
     }
     /**
      * @description:对所有的控件进行初始化

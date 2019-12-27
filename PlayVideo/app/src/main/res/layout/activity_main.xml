@@ -5,28 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <EditText
-        android:id="@+id/videoPath"
-        android:text=" /data/data/com.example.playvideo/myVideo.mp4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <ImageView
-        android:id="@+id/play"
+<!--    <EditText-->
+<!--        android:id="@+id/videoPath"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+<!--    <ImageView-->
+<!--        android:id="@+id/play"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="@id/videoPath"-->
+<!--        android:src="@android:drawable/ic_media_play"/>-->
+
+    <Button
+        android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="@id/videoPath"
-        android:src="@android:drawable/ic_media_play"/>
-
-    <VideoView
-        android:id="@+id/videoArea"
-        android:layout_marginTop="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:text="播放"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videoPath"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+    </Button>
+
+    <include
+        android:id="@+id/videoArea"
+        android:layout_width="352dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/play" />
 </androidx.constraintlayout.widget.ConstraintLayout>
