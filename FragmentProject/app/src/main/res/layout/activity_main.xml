@@ -9,8 +9,8 @@
     tools:context=".MainActivity">
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/top"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -26,10 +26,9 @@
 
 
 
-
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/bottom"
         app:layout_constraintTop_toBottomOf="@+id/top"
         app:layout_constraintLeft_toLeftOf="parent"

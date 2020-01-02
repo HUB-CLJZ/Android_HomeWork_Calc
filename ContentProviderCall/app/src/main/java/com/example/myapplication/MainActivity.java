@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;

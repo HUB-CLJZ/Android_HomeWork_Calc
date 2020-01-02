@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter adapter;
     private ProgressDialog dialog;
     private List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-    private static final String PATH = "http://www.mocky.io/v2/5de5e06d2e0000780031fedc";
+    private static final String PATH = "http://www.tutefresh.com/user.json";
+//    private static final String PATH = "http://www.mocky.io/v2/5de5e06d2e0000780031fedc";
 //    private static final String PATH = "http://10.0.2.2:8080/Project_1_war_exploded/studentInformation.json";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
