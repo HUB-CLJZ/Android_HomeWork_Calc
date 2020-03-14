@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         playFrame();
     /*---------------------------------------------------------------------------------------------*/
-        init();
+//        init();
     }
 
     /**
@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @return: void
      */
     private void init() {
-
         flower = findViewById(R.id.flower);
         play = findViewById(R.id.play);
         play.setOnClickListener(this);

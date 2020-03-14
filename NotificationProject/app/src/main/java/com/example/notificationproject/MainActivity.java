@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         baseNotification();
 /*----------------------------------------------------------------------------------------------------------*/
         //基础的通知添加扩展通知自定义布局
-        addLayoutNotification();
+        //addLayoutNotification();
     }
 
     /**
@@ -51,8 +51,11 @@ public class MainActivity extends AppCompatActivity {
         builder.setContentIntent(pendingIntent);
         //设置通知的图标
         builder.setSmallIcon(drawable.ic_launcher_background);
+
+        builder.setFullScreenIntent(pendingIntent,true);
         //设置通知的标题
         builder.setContentTitle("标题");
+
         //通知的取消按钮
         builder.setAutoCancel(true);
         //通知的内容

@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3e51b5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/menu">
+
+        <TextView
+            android:id="@+id/tv_management"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="账户管理"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:text="充值记录"
+            android:textColor="#ffffff">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/tv_batch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp"
+            android:text="批量充值"
+            android:textColor="#ffffff">
+
+        </TextView>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/item_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tool_menu">
+
+        <TextView
+            android:id="@+id/tv_number_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:text="1"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:id="@+id/iv_car_1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/car1"></ImageView>
+
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_car_number_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="辽A10001"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/tv_car_owner_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="车主：张三"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="90dp"
+            android:text="余额："
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tv_banner_1"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="number"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="元"
+            android:textStyle="bold"></TextView>
+
+        <CheckBox
+            android:id="@+id/checkbox_choose_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="120dp"></CheckBox>
+
+        <Button
+            android:id="@+id/btn_recharge_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="充值"></Button>
+    </LinearLayout>
+
+
+    <!--    分割线-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#909090"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/item_1">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/item_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/item_1">
+
+        <TextView
+            android:id="@+id/tv_number_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:text="2"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:id="@+id/iv_car_2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/car2"></ImageView>
+
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_car_number_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="辽A10002"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/tv_car_owner_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="车主：李四"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="90dp"
+            android:text="余额："
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tv_banner_2"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="number"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="元"
+            android:textStyle="bold"></TextView>
+
+        <CheckBox
+            android:id="@+id/checkbox_choose_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="120dp">
+
+        </CheckBox>
+
+        <Button
+            android:id="@+id/btn_recharge_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="充值">
+
+        </Button>
+    </LinearLayout>
+
+    <!--    分割线-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#909090"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/item_2">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/item_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/item_2">
+
+        <TextView
+            android:id="@+id/tv_number_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:text="2"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:id="@+id/iv_car_3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/car3"></ImageView>
+
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_car_number_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="辽A10003"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/tv_car_owner_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="车主：王五"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="90dp"
+            android:text="余额："
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tv_banner_3"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="number"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="元"
+            android:textStyle="bold"></TextView>
+
+        <CheckBox
+            android:id="@+id/checkbox_choose_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="120dp"></CheckBox>
+
+        <Button
+            android:id="@+id/btn_recharge_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="充值"></Button>
+    </LinearLayout>
+
+    <!--    分割线-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#909090"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/item_3">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/item_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/item_3">
+
+        <TextView
+            android:id="@+id/tv_number_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:text="2"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:id="@+id/iv_car_4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/car4"></ImageView>
+
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_car_number_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="辽A10004"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/tv_car_owner_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="车主：赵六"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="90dp"
+            android:text="余额："
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tv_banner_4"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="number"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="元"
+            android:textStyle="bold"></TextView>
+
+        <CheckBox
+            android:id="@+id/checkbox_choose_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="120dp"></CheckBox>
+
+        <Button
+            android:id="@+id/btn_recharge_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="充值"></Button>
+    </LinearLayout>
+
+    <!--    分割线-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#909090"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/item_4"></LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

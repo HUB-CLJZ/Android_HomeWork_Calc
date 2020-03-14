@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_menu"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/menu"
+        android:background="#0099cc">
+        <!--
+            相对于父窗口居中
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+        -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的账户"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <TextView
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_menu"
+        android:id="@+id/balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账户余额："
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="70dp"
+        android:textSize="20dp"
+        android:textStyle="bold">
+    </TextView>
+
+    <TextView
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/balance"
+        android:id="@+id/car_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车        号:"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold">
+    </TextView>
+
+    <Spinner
+        android:entries="@array/spingarr"
+        android:id="@+id/depSpinner"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/balance"
+        app:layout_constraintLeft_toRightOf="@+id/car_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Spinner>
+
+
+    <TextView
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/car_number"
+        android:id="@+id/query_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="充值金额: "
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold">
+    </TextView>
+
+    <EditText
+        android:id="@+id/et_query_money"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/query_money"
+        app:layout_constraintTop_toBottomOf="@id/depSpinner"
+        android:layout_marginTop="11dp"
+        android:maxLength="3"
+        android:inputType="number">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查询"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/query_money"
+        android:layout_marginLeft="70dp">
+    </Button>
+
+    <Button
+        android:id="@+id/btn_recharge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="充值"
+        app:layout_constraintLeft_toRightOf="@+id/btn_query"
+        app:layout_constraintTop_toBottomOf="@+id/query_money"
+        android:layout_marginLeft="15dp">
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

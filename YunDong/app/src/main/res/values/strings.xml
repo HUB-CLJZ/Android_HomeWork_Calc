@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">YunDong</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="name">Name</string>
+    <string name="passwd">Password</string>
+    <string name="passwdagain">PasswordAgain</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="interest">Interest</string>
+    <string name="run">Run</string>
+    <string name="swim">Swim</string>
+    <string name="bicycle">Bicycle</string>
+    <string name="hill">Hill</string>
+    <string name="reset">Reset</string>
+    <string name="register">Register</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

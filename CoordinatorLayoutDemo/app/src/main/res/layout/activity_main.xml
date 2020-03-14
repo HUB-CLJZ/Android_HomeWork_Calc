@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!--
+    layout_scrollFlags:设置滚动效果
+        scroll设置可以滚动
+        enterAlways设置上拉时显示
+        snap判断拖动的状态，拖动一半，认为没拖动，自动消失。超过一般，会完成剩下的
+    -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:background="#858585"
+                app:navigationIcon="@mipmap/ic_launcher"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlways|snap">
+                <TextView
+                    android:textColor="#3e86a0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="这里是toolbar">
+                </TextView>
+            </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <!--
+            layout_behavior设置之后确定从哪个条目开始滚动
+            @string/appbar_scrolling_view_behavior设置开始的起点是第一个条目
+            另外加上之后会一边消失一边滚动
+    -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="15dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

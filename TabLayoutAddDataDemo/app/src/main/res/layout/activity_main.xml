@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!--
+        stretchColumns:设置自动铺满每一列，自动分配大小
+        divider：设置边界的颜色，线的粗细
+        showDividers：设置显示的边界
+            beginning：在开始处显示分隔线
+            end：在结尾处显示分隔线
+            middle：在每两个组件间显示分隔线
+
+        使用showDividers就必须设置TextView权重
+    -->
+        <TableLayout
+            android:id="@+id/tab"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:divider="@drawable/line_h"
+            android:showDividers="beginning|end|middle"
+            android:orientation="vertical">
+            <TableRow
+                android:showDividers="middle|beginning|end"
+                android:divider="@drawable/line_h"
+                android:orientation="horizontal">
+                <TextView
+                    android:padding="9dp"
+                    android:layout_width="1dp"
+                    android:text="标题一"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:padding="9dp"
+                    android:layout_width="1dp"
+                    android:text="标题二"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:padding="9dp"
+                    android:layout_width="1dp"
+                    android:text="标题三"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:padding="9dp"
+                    android:layout_width="1dp"
+                    android:text="标题四"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+
+        </TableLayout>
+</LinearLayout>

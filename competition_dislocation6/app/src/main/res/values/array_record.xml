@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="order">
+        <item>降序排序</item>
+        <item>升序排序</item>
+    </string-array>
+</resources>

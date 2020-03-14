@@ -1,0 +1,4 @@
+#Wed Jan 15 17:26:52 CST 2020
+base.0=H\:\\AndroidProject\\competition_dislocation15\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

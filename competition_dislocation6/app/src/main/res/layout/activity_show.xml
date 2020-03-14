@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShowActivity">
+    <!--
+       stretchColumns:设置自动铺满每一列，自动分配大小
+       divider：设置边界的颜色，线的粗细
+       showDividers：设置显示的边界
+           beginning：在开始处显示分隔线
+           end：在结尾处显示分隔线
+           middle：在每两个组件间显示分隔线
+
+       使用showDividers就必须设置TextView权重
+   -->
+    <!--
+            此属性无法自动补全，需要手写android:layout_gravity="start"
+            设置那个属性为layout_gravity则，那个属性在最底下。栈的顺序
+        -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_menu"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/menu"
+            android:background="#0099cc">
+            <!--
+                相对于父窗口居中
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+            -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账单管理"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+        </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tv_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tool_menu"
+        android:textSize="25dp"
+        android:text="账单记录"
+        android:textStyle="bold"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp">
+    </TextView>
+
+    <Spinner
+        android:entries="@array/order"
+        android:id="@+id/depSpinner"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/tool_menu"
+        app:layout_constraintLeft_toRightOf="@+id/tv_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Spinner>
+
+    <Button
+        android:id="@+id/btn_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查询"
+        app:layout_constraintLeft_toRightOf="@id/depSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/tool_menu">
+
+    </Button>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp">
+        <TableLayout
+        android:id="@+id/tab"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:divider="@drawable/line_h"
+        android:showDividers="beginning|end|middle"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <TableRow
+            android:showDividers="middle|beginning|end"
+            android:divider="@drawable/line_h"
+            android:orientation="horizontal">
+            <TextView
+                android:padding="9dp"
+                android:layout_width="1dp"
+                android:text="序号"
+                android:gravity="center"
+                android:layout_weight="1"/>
+            <TextView
+                android:padding="9dp"
+                android:layout_width="1dp"
+                android:text="车号"
+                android:gravity="center"
+                android:layout_weight="1"/>
+            <TextView
+                android:padding="9dp"
+                android:layout_width="1dp"
+                android:text="充值金额"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:padding="9dp"
+                    android:layout_width="1dp"
+                    android:text="充值时间"
+                    android:gravity="center"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+
+        </TableLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MapActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"></LinearLayout>
+
+    <com.amap.api.maps.MapView
+        android:id="@+id/gaode_map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+
+    </com.amap.api.maps.MapView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_offmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="离线地图" />
+
+        <Button
+            android:id="@+id/button_interactionwithmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="按钮手势" />
+        <Button
+            android:id="@+id/button_mapscreenshot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="截屏" />
+        <Button
+        android:id="@+id/button_maptowuxi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="定到无锡" />
+    </LinearLayout>
+</LinearLayout>

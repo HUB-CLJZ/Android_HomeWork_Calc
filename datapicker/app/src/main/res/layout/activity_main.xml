@@ -8,9 +8,17 @@
 
 
     <DatePicker
+        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/data_picker"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="400dp">
 
     </DatePicker>
+
+    <Button
+        app:layout_constraintTop_toBottomOf="@+id/data_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0000-00-00"
+        android:id="@+id/btnDate"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

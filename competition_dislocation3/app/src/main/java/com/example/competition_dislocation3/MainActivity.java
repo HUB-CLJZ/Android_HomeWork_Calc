@@ -4,14 +4,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static android.content.ContentValues.TAG;
-import static android.util.Config.DEBUG;
 
 /**
  * @author admin
@@ -27,20 +24,22 @@ public class MainActivity extends AppCompatActivity {
         etUseranme = findViewById(R.id.et_useranme);
         etPassword = findViewById(R.id.et_password);
 
+
         etPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Pattern p = Pattern.compile(regex);
-                Matcher m = p.matcher(etUseranme.getText().toString());
-                boolean isMatch = m.matches();
-                if(!isMatch) {
-                    Toast.makeText(MainActivity.this, "您的手机号是错误格式！！！", Toast.LENGTH_SHORT).show();
-                }
+
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                String str = charSequence.toString();
+                Pattern p = Pattern.compile(regex);
+                Matcher m = p.matcher(str);
+                boolean isMatch = m.matches();
+                if(!isMatch) {
+//                    Toast.makeText(MainActivity.this, "您的手机号是错误格式！！！", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -48,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public void open(View view) {
 
     }
 }

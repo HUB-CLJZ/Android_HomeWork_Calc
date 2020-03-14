@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">运动健康</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="name">姓名</string>
+    <string name="passwd">密码</string>
+    <string name="passwdagain">再输入一次密码</string>
+    <string name="phone">手机</string>
+    <string name="email">电子邮箱</string>
+    <string name="interest">兴趣爱好</string>
+    <string name="run">跑步</string>
+    <string name="swim">游泳</string>
+    <string name="bicycle">骑自行车</string>
+    <string name="hill">爬山</string>
+    <string name="reset">重置</string>
+    <string name="register">注册</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/more_type"
+        android:title="多种条目类型"
+        app:showAsAction="always"
+        android:icon="@drawable/abc_vector_test">
+        <menu>
+            <item
+                android:id="@+id/list_view_vertical_stander"
+                android:title="垂直标准"/>
+            <item
+                android:id="@+id/list_view_vertical_reverse"
+                android:title="垂直反向"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/title_s"
+        app:showAsAction="always"
+        android:title="标题"
+        android:icon="@drawable/abc_vector_test"/>
+</menu>

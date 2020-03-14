@@ -6,11 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!--
+        numStars:星星总数
+        rating：当前所在评分
+        stepSize:评分步数
+        isIndicator：是否允许评分，false为允许
+        progressDrawable:设置背景，以及选择图案，可以自己定义
+     -->
+
     <RatingBar
         android:id="@+id/ratingbar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rating="2"
+        android:layout_marginTop="30dp"
+        android:layout_height="30dp"
+        android:progressDrawable="@drawable/ratingbar_full"
+        android:numStars="6"
+        android:rating="3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"

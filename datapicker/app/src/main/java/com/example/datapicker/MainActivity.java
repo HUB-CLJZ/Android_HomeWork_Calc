@@ -1,9 +1,9 @@
 package com.example.datapicker;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
@@ -12,6 +12,8 @@ import java.util.Calendar;
 public class MainActivity extends Activity {
     private  int year,month,day;
     private DatePicker datePicker;
+
+    private Button btnDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,20 @@ public class MainActivity extends Activity {
                 MainActivity.this.month = i1;
                 MainActivity.this.day = i2;
                 show(i,i1,i2);
+            }
+        });
+
+        btnDate = findViewById(R.id.btnDate);
+        btnDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        String date = year + "-"+ month + "-" + dayOfMonth;
+                        btnDate.setText(date);
+                    }
+                },2018,10,5).show();
             }
         });
     }

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<title></title>
+		<style>
+			/* Make the image fully responsive */
+		  .carousel-inner img {
+		      width: 100%;
+		      height: 100%;
+		  }
+		  </style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<div class="top">
+						<div class="wid1200">
+							<div class="top-left" style="margin-right:30px;">
+								<div style="color:#fff">
+									<a href="yhtd/xs.htm" title="学生" style="color:#fff">学生</a>
+									&nbsp;|&nbsp;
+									<a href="yhtd/jg.htm" title="教工" style="color:#fff">教工</a>
+									&nbsp;|&nbsp;
+
+									<a href="yhtd/xy.htm" title="校友" style="color:#fff">校友</a>
+									&nbsp;|&nbsp;
+
+									<a href="yhtd/ks.htm" title="考生" style="color:#fff">考生</a>
+									&nbsp;|&nbsp;
+
+									<a href="yhtd/fk.htm" title="访客" style="color:#fff">访客</a>
+									&nbsp;&nbsp;
+								</div>
+							</div>
+							<div class="top-right">
+								<script language="javascript" src="system/resource/js/dynclicks.js"></script>
+								<script language="javascript" src="system/resource/js/openlink.js"></script> <a href="http://eng.hubu.edu.cn/">English&nbsp;</a>
+
+								<script type="text/javascript">
+									function _nl_ys_check() {
+										var keyword = document.getElementById('showkeycode127558').value;
+										if (keyword == null || keyword == "") {
+											alert("请输入你要检索的内容！");
+											return false;
+										}
+										if (window.toFF == 1) {
+											document.getElementById("lucenenewssearchkey127558").value = Simplized(keyword);
+										} else {
+											document.getElementById("lucenenewssearchkey127558").value = keyword;
+										}
+										var base64 = new Base64();
+										document.getElementById("lucenenewssearchkey127558").value = base64.encode(document.getElementById(
+											"lucenenewssearchkey127558").value);
+										new VsbFormFunc().disableAutoEnable(document.getElementById("showkeycode127558"));
+										return true;
+									}
+								</script>
+								<form action="ssjg.jsp?wbtreeid=1001" method="post" id="au3a" name="au3a" onsubmit="return _nl_ys_check()"
+								 style="display: inline">
+									<input type="hidden" id="lucenenewssearchkey127558" name="lucenenewssearchkey" value=""><input type="hidden"
+									 id="_lucenesearchtype127558" name="_lucenesearchtype" value="1"><input type="hidden" id="searchScope127558"
+									 name="searchScope" value="1">
+									<input type="image" src="img/search-btn.jpg" class="search-btn">
+									<input onclick="if(this.value == '请输入搜索内容...')this.value='';" onblur="if(this.value == '')this.value='请输入搜索内容...';"
+									 class="search-input" value="请输入搜索内容..." name="showkeycode" id="showkeycode127558">
+								</form>
+								<script language="javascript" src="system/resource/js/base64.js"></script>
+								<script language="javascript" src="system/resource/js/formfunc.js"></script>
+							</div>
+							<div class="top-left" style="float:right;">
+								<ul>
+									<li><a href="http://news.hubu.edu.cn/" target="_blank" onclick="_addDynClicks(&quot;wbimage&quot;, 1265742740, 25778)">
+											<img src="img/top-1.jpg">新闻网
+										</a>
+									</li>
+									<li><a href="http://one.hubu.edu.cn" target="_blank" onclick="_addDynClicks(&quot;wbimage&quot;, 1265742740, 20241)">
+											<img src="img/top-2.jpg">智慧服务中心
+										</a>
+									</li>
+									<li><a href="http://oa.hubu.edu.cn/oa/" target="_blank" onclick="_addDynClicks(&quot;wbimage&quot;, 1265742740, 20242)">
+											<img src="img/top-3.jpg">办公系统
+										</a>
+									</li>
+									<li><a href="http://mail.hubu.edu.cn/" target="_blank" onclick="_addDynClicks(&quot;wbimage&quot;, 1265742740, 20243)">
+											<img src="img/top-4.jpg">邮箱系统
+										</a>
+									</li>
+									<li><a href="http://xxgk.hubu.edu.cn/" target="_blank" onclick="_addDynClicks(&quot;wbimage&quot;, 1265742740, 20240)">
+											<img src="img/top-1.jpg">信息公开
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<div class="logo">
+						<div class="wid1100">
+							<!-- 网站logo图片地址请在本组件"内容配置-网站logo"处填写 -->
+							<a href="index.htm" class="logo-1" style="background-image:url(img/fengwei11.png);"><img src="img/new_logo2.png"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-1 col-sm-1"></div>
+				<div class="col-md-10 col-sm-10">
+					<nav class="navbar navbar-expand-md bg-light navbar-dark">
+						<a class="navbar-brand text-dark mr-5" href="#"></a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+							<span class="navbar-toggler-icon text-dark"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="collapsibleNavbar">
+							<ul class="navbar-nav ustify-content-center">
+								<li class="nav-item mr-5">
+									<a class="nav-link text-dark" href="#"><b>网站首页</b></a>
+								</li>
+								<li class="nav-item mr-5">
+									<a class="nav-link text-dark" href="#"><b>学校概况</b></a>
+								</li>
+								<li class="nav-item mr-5">
+									<a class="nav-link text-dark" href="#"><b>组织机构</b></a>
+								</li>
+								<li class="nav-item mr-5">
+									<a class="nav-link text-dark" href="#"><b>学科科研</b></a>
+								</li>
+								<li class="nav-item mr-5">
+									<a class="nav-link text-dark" href="#"><b>人才培养</b></a>
+								</li>
+								<li class="nav-item mr-5">
+									<a class="nav-link text-dark" href="#"><b>招生就业</b></a>
+								</li>
+								<li class="nav-item mr-5">
+									<a class="nav-link text-dark" href="#"><b>校园文化</b></a>
+								</li>
+								<li class="nav-item mr-5">
+									<a class="nav-link text-dark" href="#"><b>公共服务</b></a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-1 col-sm-10"></div>
+				<div class="col-md-10 col-sm-10">
+					<div id="demo" class="carousel slide" data-ride="carousel">
+						<!-- 指示符 -->
+						<ul class="carousel-indicators">
+							<li data-target="#demo" data-slide-to="0" class="active"></li>
+							<li data-target="#demo" data-slide-to="1"></li>
+							<li data-target="#demo" data-slide-to="2"></li>
+						</ul>
+
+						<!-- 轮播图片 -->
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="img/1.jpg">
+							</div>
+							<div class="carousel-item">
+								<img src="img/0612.jpg">
+							</div>
+							<div class="carousel-item">
+								<img src="img/5.jpg">
+							</div>
+						</div>
+
+						<!-- 左右切换按钮 -->
+						<a class="carousel-control-prev" href="#demo" data-slide="prev">
+							<span class="carousel-control-prev-icon"></span>
+						</a>
+						<a class="carousel-control-next" href="#demo" data-slide="next">
+							<span class="carousel-control-next-icon"></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-1"></div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-1 col-sm-1"></div>
+				<div class="col-md-10 col-sm-10">
+					<div class="title">
+						<h3>湖大要闻<span> HOT NEWS</span></h3>
+						<span><a class="more" href="index/hdyw.htm" target="">MORE&gt;&gt;</a></span>
+						<span><a class="more" href="http://news.hubu.edu.cn/" target="" style="color:#000">更多新闻访问新闻网&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><span>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-1"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-1 col-sm-1"></div>
+				<div class="col-md-4 col-sm-10"> 
+					<div id="demo1" class="carousel slide" data-ride="carousel">
+						<!-- 指示符 -->
+						<ul class="carousel-indicators">
+							<li data-target="#demo1" data-slide-to="0" class="active"></li>
+							<li data-target="#demo1" data-slide-to="1"></li>
+							<li data-target="#demo1" data-slide-to="2"></li>
+						</ul>
+						<!-- 轮播图片 -->
+						<div class="carousel-inner mt-4">
+							<div class="carousel-item active">
+								<img src="http://www.hubu.edu.cn/__local/A/D7/A6/B6B219F2EBACDB606347E8F51D5_89A33A2A_8ADFF.jpg">
+								<div class="carousel-caption">
+									<h3></h3>
+									<p>湖北大学在湖北省博士后创新研究岗设立和项目资助评选中获佳绩</p>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="http://www.hubu.edu.cn/__local/0/A6/EB/4F9A30EDABD0CDC139723225DBA_FAD90FA6_C4917.png">
+								<div class="carousel-caption">
+									<h3></h3>
+									<p>学校召开2019年一流学科建设总结汇报会</p>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<img src="http://www.hubu.edu.cn/__local/7/1D/81/98DA3DEDC297804D1E73742DEC3_B5E471F7_3B9B9.jpg">
+								<div class="carousel-caption">
+									<h3></h3>
+									<p>湖北大学在湖北省博士后创新研究岗设立和项目资助评选中获佳绩</p>
+								</div>
+							</div>
+						</div>
+						<!-- 左右切换按钮 -->
+						<a class="carousel-control-prev" href="#demo1" data-slide="prev">
+							<span class="carousel-control-prev-icon"></span>
+						</a>
+						<a class="carousel-control-next" href="#demo1" data-slide="next">
+							<span class="carousel-control-next-icon"></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-10 mt-3">
+					<div class="media">
+						<img src="http://www.hubu.edu.cn/__local/A/D7/A6/B6B219F2EBACDB606347E8F51D5_89A33A2A_8ADFF.jpg" alt="John Doe"
+						 class="mr-3 mt-3" style="width:120px;">
+						<div class="media-body pt-1">
+							<h6 style="mt-2">湖北大学在湖北省博士后创新研究岗</h6>
+							<p style="color: #838383;">湖北省博士后创新研究岗位个优资助项目5项</p>
+						</div>
+					</div>
+					<div class="media">
+						<img src="http://www.hubu.edu.cn/__local/7/1D/81/98DA3DEDC297804D1E73742DEC3_B5E471F7_3B9B9.jpg" alt="John Doe"
+						 class="mr-3 mt-3" style="width:120px;">
+						<div class="media-body">
+							<h6 style="mt-2">学校召开2019年一流学科建设总结</h6>
+							<p style="color: #838383;">总结新成效、交流新经验、划划新发展。</p>
+						</div>
+					</div>
+					<div class="media">
+						<img src="http://www.hubu.edu.cn/__local/6/BF/E6/681FD95A8045370FBCFC34C1FC0_E6B97BA1_11B32.jpg" alt="John Doe"
+						 class="mr-3 mt-3" style="width:120px;">
+						<div class="media-body">
+							<h6>《湖北大学学报》在全国期刊评价中再创佳绩</h6>
+							<p style="color: #838383;">近期，《湖北大学学报》（哲社版）通过全国哲学社会科学.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-10 mt-3">
+					<div class="media">
+						<img src="http://www.hubu.edu.cn/__local/0/A6/EB/4F9A30EDABD0CDC139723225DBA_FAD90FA6_C4917.png" alt="John Doe"
+						 class="mr-3 mt-3" style="width:120px;">
+						<div class="media-body pt-1">
+							<h6>我校新增1个省级外专引智平台</h6>
+							<p style="color: #838383;">汇聚一批国际一流人才，提升学校科技创新能力</p>
+						</div>
+					</div>
+					<div class="media">
+						<img src="http://www.hubu.edu.cn/__local/1/21/BB/7F510CFD19DE53BAC79DA5DF527_7C520E66_F1E8.jpg" alt="John Doe"
+						 class="mr-3 mt-3" style="width:120px;">
+						<div class="media-body">
+							<h6>湖大田子渝教授荣获全国离退休干部先进个人</h6>
+							<p style="color: #838383;">12月12日，中共中央组织部发布</p>
+						</div>
+					</div>
+					<div class="media">
+						<img src="http://www.hubu.edu.cn/__local/8/70/F2/F6221549BCC724DA3EEA3725005_7F77E9B4_486A1.png" alt="John Doe"
+						 class="mr-3 mt-3" style="width:120px;">
+						<div class="media-body">
+							<h6>我校郭劲松副教授获教育部首届</h6>
+							<p style="color: #838383;">近日，由教育部社科司举办的首届全国高校思想政治理论</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 col-sm-1"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-3">
+					<div class="title">
+						<h3>综合新闻<span> NEWS</span></h3><a class="more-1" href="index/zhxw.htm">MORE<img src="img/jia.jpg"></a>
+					</div>
+					<div class="xsdt-list">
+						<ul class="sy-list">
+							<li><a href="info/1246/32997.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;泰国庄棚皇家大学来校访问</a></li>
+							<li><a href="info/1246/32996.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;第二届董继宁艺术奖颁发</a></li>
+							<li><a href="info/1246/32993.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;湖北大学广播视频作品获多项奖励</a></li>
+							<li><a href="info/1246/32982.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;湖北大学20件新闻作品获全省新闻奖</a></li>
+							<li><a href="info/1246/32961.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;湖北大学在江夏金口中学建立师范专业教育实习实践基地</a></li>
+							<li><a href="info/1246/32958.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;湖北大学中文系新三届文集《时代之子》发布</a></li>
+							<li><a href="info/1246/32944.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;校长谢红星为学校办公室党支部党员讲授微党课</a></li>
+							<li><a href="info/1246/32941.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;史密斯公司向我校捐赠10台净水器</a></li>
+							<li><a href="info/1246/32938.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;我校荣获“全省档案工作先进集体”称号</a></li>
+							<li><a href="info/1246/32932.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;湖北大学与广水市签订战略合作协议</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="title">
+						<h3>学术 · 学者 · 学生<span> ACADEMICS</span></h3><a class="more-1" href="index/xsxzxs.htm">MORE<img src="img/jia.jpg"></a>
+					</div>
+					<div class="xsdt-list">
+						<ul class="sy-list">
+							<li><a href="info/1075/32773.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;湖北大学一周（12.23-12.29）学术报告预告</a></li>
+							<li><a href="https://article.xuexi.cn/articles/index.html?art_id=664022270374622807&study_style_id=video_default&pid=&ptype=-1&share_to=wx_feed&source=share&from=singlemessage&isappinstalled=0"
+								 target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;【学习强国】王希翀：阅读似一束光 引导青年人找到与世界对话的勇气和智慧</a></li>
+							<li><a href="info/1075/32943.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;郭劲松：竭力打造思政金课</a></li>
+							<li><a href="info/1075/32936.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;2019年高光谱图像处理学术研讨会在校召开</a></li>
+							<li><a href="info/1075/32925.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;湖北大学一周（12.16-12.22）学术报告预告</a></li>
+							<li><a href="info/1075/32920.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;黄志剑教授应邀出席首届国际运动心理学会议</a></li>
+							<li><a href="info/1075/32897.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;马勇教授受邀主持长江国际黄金旅游带发展论坛</a></li>
+							<li><a href="info/1075/32889.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;湖北省博物馆馆长方勤受聘中华文化发展湖北省协同创新中心研究员</a></li>
+							<li><a href="info/1075/32888.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;【中国教育报】严敏
+									周芳：家校协同式思想政治教育的探索与实践</a></li>
+							<li><a href="info/1075/32839.htm" target="_blank" class="f_14"><img src="img/point.jpg">&nbsp;&nbsp;我校举办当代湖北文艺批评的理论与实践座谈会</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="title">
+						<h3>通知公告<span> NOTICE</span></h3><a class="more-1" href="index/tzgg.htm">MORE<img src="img/jia.jpg"></a>
+					</div>
+					<div class="mthd-list">
+						<ul class="sy-list">
+							<li><a href="info/1071/32992.htm" target="_blank" class="f_14">校医院关于师生做好预防流感工作的通知</a></li>
+							<li><a href="info/1071/32947.htm" target="_blank" class="f_14">关于研究生入学考试期间关闭部分区域校园网的通知</a></li>
+							<li><a href="info/1071/32946.htm" target="_blank" class="f_14">区域开发与环境响应湖北省重点实验室2019年度开放研究基金申请通知</a></li>
+							<li><a href="info/1071/32939.htm" target="_blank" class="f_14">湖北大学开展第四届湖北省杰出专业技术人才、优秀博士后和优秀留学回国人员评选工作的通知</a></li>
+						</ul>
+					</div>
+					<div class="title">
+						<h3>媒体湖大<span> MEDIA</span></h3><a class="more-1" href="index/mthd.htm">MORE<img src="img/jia.jpg"></a>
+					</div>
+					<div class="mthd-list">
+						<ul class="sy-list">
+							<li><a href="info/1076/32980.htm" target="_blank" class="f_14">【大楚网】《时代之子》湖北大学中文系新三届文集发布暨研讨会成功举办</a></li>
+							<li><a href="info/1076/32962.htm" target="_blank" class="f_14">【楚天都市报】湖北大学在金口中学建实习实训基地</a></li>
+							<li><a href="info/1076/32960.htm" target="_blank" class="f_14">【楚天都市报】入学时成绩中等 警醒后奋起直追 “程序媛”逆袭拼得月薪数万元职位</a></li>
+							<li><a href="info/1076/32948.htm" target="_blank" class="f_14">【湖北日报】湖北大学中文系新三届文集《时代之子》在汉首发</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="title">
+						<h3>校园专题<span> TOPICS</span></h3> <a class="more-1" href="index/xyzt.htm">MORE<img src="img/jia.jpg"></a>
+					</div>
+					<div id="my-slide">
+						<ul class="slide-list">
+							<button type="button" class="slick-top-prev slick-arrow" style=""></button>
+							<li attr-id="1" class="img-1 active">
+								<img src="img/bwcx.jpg" alt="">
+							</li>
+							<li attr-id="2" class="img-2 ">
+								<img src="img/xy70.jpg" alt="">
+							</li>
+							<li attr-id="3" class="img-3 ">
+								<img src="img/xkn.jpg" alt="">
+							</li>
+							<li attr-id="4" class="img-4">
+								<img src="img/xjp.jpg" alt="">
+							</li>
+							<li attr-id="5" class="img-5 ">
+								<img src="img/llxx.jpg" alt="">
+							</li>
+							<button type="button" class="slick-top-next slick-arrow" style=""></button>
+						</ul>
+					</div>
+					<script type="text/javascript" src="js/slide.js"></script>
+					<script>
+						//init slide
+						function slide_init() {
+							//$("#my-slide>.slide-list").children("li").css("width","calc(100% - 20px - 50%)");
+							var slide_length = $("#my-slide>.slide-list").children("li").length;
+							var li_width = $("#my-slide>.slide-list").children("li").width();
+							//ert(li_width);
+							//Calculate position of every li element
+							for (var j = 1; j <= slide_length; j++) {
+								$("#my-slide>.slide-list").find(".img-" + j).css("left", li_width / 2 + li_width * (j - 1) + 20 * j);
+								if (j == slide_length) {
+									$("#my-slide>.slide-list").find(".img-" + j).css("left", -(li_width / 2));
+								}
+							}
+						}
+						//click left button to show the previous image
+						$(".slick-top-prev").click(function() {
+							var obj = $("#my-slide>.slide-list");
+							top_slide_left_click(this, obj);
+						});
+
+						//click right button to show the previous image
+						$(".slick-top-next").click(function() {
+							var obj = $("#my-slide>.slide-list");
+							top_slide_right_click(this, obj);
+						});
+						$(function() {
+							slide_init();
+						});
+						//
+						$(window).resize(function() {
+							slide_init();
+						});
+					</script>
+					<!------------sy-part-1---------->
+				</div>
+				<div class="col-md-1"></div>
+				
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<img src="img/footer.png" width="100%" style="margin-top: -170px;">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

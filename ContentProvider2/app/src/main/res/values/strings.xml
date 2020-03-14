@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ContentProvider2</string>
+    <string name="title_activity_photo">PhotoActivity</string>
+</resources>

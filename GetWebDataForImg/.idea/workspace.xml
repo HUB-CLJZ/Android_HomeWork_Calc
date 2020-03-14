@@ -19,7 +19,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_24" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_4_API_25" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -71,7 +71,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="F:/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GetWebImage" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
