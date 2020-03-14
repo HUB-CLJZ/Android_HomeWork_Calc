@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements PoiSearch.OnPoiSe
         //drawPlan();
 
         //搜索地点
-        //searchLocation();
+        searchLocation();
 
     }
 

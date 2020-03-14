@@ -36,8 +36,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    implementation files('libs/AMap3DMap_7.2.1_AMapNavi_7.2.0_AMapLocation_4.9.0_20200302.jar')
-    implementation 'androidx.room:room-runtime:2.2.4'
-    annotationProcessor 'androidx.room:room-compiler:2.2.4'
     implementation files('libs/AMap_Location_V4.8.0_20191210.jar')
+    implementation files('libs/AMap_Search_V7.1.0_20191030.jar')
+    implementation files('libs/Android_Map3D_SDK_V7.2.1_20200115.jar')
 }
