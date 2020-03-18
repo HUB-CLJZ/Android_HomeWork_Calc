@@ -38,7 +38,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+/**
+ * 1.获取本地的SHA1码
+ * 帖子：http://lbsyun.baidu.com/index.php?title=android-locsdk/guide/key
+ *
+ * 2.下载相关jar包，放到libs目录下，并加入工程
+ *
+ * 3.在project non-source file视图下的src下的main目录创建jniLibs目录，赋值所需文件
+ *
+ */
 public class MainActivity extends AppCompatActivity implements PoiSearch.OnPoiSearchListener {
     private EditText et_search;
     private Button btn_search;
@@ -51,16 +59,16 @@ public class MainActivity extends AppCompatActivity implements PoiSearch.OnPoiSe
         setContentView(R.layout.activity_main);
 
         //初始化
-        initView();
+        mMapView = findViewById(R.id.gaode_map);
         mMapView.onCreate(savedInstanceState);
         mAmap = mMapView.getMap();
-
+        initView();
 
         //设置地图可见，并定位到当前位置
-        setViewShow();
+        //setViewShow();
 
         //设置交互组件
-        setInteraction();
+        //setInteraction();
 
         //定位到指定位置,
         //setLocation();
@@ -278,7 +286,6 @@ public class MainActivity extends AppCompatActivity implements PoiSearch.OnPoiSe
      */
     private void initView() {
         //初始化控件
-        mMapView = findViewById(R.id.gaode_map);
         et_search = findViewById(R.id.et_search);
         btn_search = findViewById(R.id.btn_search);
     }

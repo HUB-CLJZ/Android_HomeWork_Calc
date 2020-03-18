@@ -29,6 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"></com.amap.api.maps.MapView>
+        tools:layout_editor_absoluteX="0dp">
+
+    </com.amap.api.maps.MapView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

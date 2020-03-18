@@ -1,13 +1,17 @@
 package com.example.zxingdemo;
+
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
@@ -22,8 +26,13 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 import com.google.zxing.qrcode.QRCodeWriter;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.UUID;
+
 /***
  *  参考文献：https://blog.csdn.net/xch_yang/article/details/82147461
  *
@@ -35,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView mImg;
     private Bitmap mBitmap;
     private int[] pixels;
+    private long TIME_DELARY = 5000;
+    private String value;
+    private Timer timer;
+    private TimerTask timerTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        mEtInput =  findViewById(R.id.et_input);
+        mEtInput = findViewById(R.id.et_input);
         mBtnGenerate = findViewById(R.id.btn_generate);
         mImg = findViewById(R.id.img);
 
@@ -53,14 +66,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(final View v) {
         switch (v.getId()) {
             case R.id.btn_generate:
-                mBitmap = generateBitmap(mEtInput.getText().toString(),400,400);
-                mImg.setImageBitmap(mBitmap);
-                scanningImage();
-            break;
-
+                timer = new Timer();
+                timerTask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        value = UUID.randomUUID() + "#" + mEtInput.getText().toString();
+                        System.out.println(value);
+                        mBitmap = generateBitmap(value, 400, 400);
+                        //  scanningImage();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mImg.setImageBitmap(mBitmap);
+                            }
+                        });
+                    }
+                };
+                timer.scheduleAtFixedRate(timerTask, 0, TIME_DELARY);
+                break;
         }
     }
 
@@ -97,10 +123,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
 
         //设置空白区域的边距
-        hints.put(EncodeHintType.MARGIN,"1");
+        hints.put(EncodeHintType.MARGIN, "1");
 
         //设置容错率
-        hints.put(EncodeHintType.ERROR_CORRECTION,"L");
+        hints.put(EncodeHintType.ERROR_CORRECTION, "L");
 
         try {
 
@@ -142,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         hints.put(DecodeHintType.CHARACTER_SET, "utf-8");
 
         // 获得待解析的二维码数组
-        RGBLuminanceSource source = new RGBLuminanceSource(400,400,pixels);
+        RGBLuminanceSource source = new RGBLuminanceSource(400, 400, pixels);
 
         //二进制图像
         BinaryBitmap bitmap1 = new BinaryBitmap(new HybridBinarizer(source));
