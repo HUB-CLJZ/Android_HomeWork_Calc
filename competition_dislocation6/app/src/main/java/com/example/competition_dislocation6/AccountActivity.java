@@ -65,7 +65,6 @@ public class AccountActivity extends AppCompatActivity {
 
             }
         });
-        listeningMethods();
     }
 
     private void listeningMethods() {

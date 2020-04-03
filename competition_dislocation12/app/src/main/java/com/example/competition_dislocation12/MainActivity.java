@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
      * https://blog.csdn.net/a8688555/article/details/80344159
      * https://www.cnblogs.com/r-decade/p/6241693.html
      * https://www.jianshu.com/p/6f8156ee0143
+     *
+     * 官方文档：
+     * https://github.com/PhilJay/MPAndroidChart
+     * https://weeklycoding.com/mpandroidchart-documentation/
+     * https://javadoc.jitpack.io/com/github/PhilJay/MPAndroidChart/v3.1.0/javadoc/
      * */
     private LineChart lc;
     @Override
@@ -34,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // 1. 获取一或多组Entry对象集合的数据
         // 模拟数据1
         List<Entry> data = new ArrayList<>();
-        int[] ys1 = new int[] {19,19,16,20,21,21,23,19,19,16,18,15};
+        //int[] ys1 = new int[] {19,19,16,20,21,21,23,19,19,16,18,15};
 
         for (int i = 0; i < 12; i++) {
             Random random = new Random();
@@ -75,11 +80,16 @@ public class MainActivity extends AppCompatActivity {
         }
         xAxis.setValueFormatter(new IndexAxisValueFormatter(list));
 
+
         //不显示x轴轴线
         xAxis.setDrawAxisLine(false);
 
+
         //设置x轴的显示位置
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        //X轴显示每个月份
+        xAxis.setLabelCount(12,true);
 
 
         //Y轴右半部分不显示
@@ -92,8 +102,10 @@ public class MainActivity extends AppCompatActivity {
         leftYAris.setDrawAxisLine(false);
 
         //设置Y轴最低值，最高值，和每个值之间的间距
-        leftYAris.setAxisMinimum(14F);
-        leftYAris.setAxisMaximum(26F);
+        leftYAris.setAxisMinimum(15F);
+        leftYAris.setAxisMaximum(25F);
+        leftYAris.setLabelCount(6,true);
+//        leftYAris.setGranularity(2.5F);
 
         //添加X轴限制线
          /*  LimitLine yLimitLine = new LimitLine(15F);

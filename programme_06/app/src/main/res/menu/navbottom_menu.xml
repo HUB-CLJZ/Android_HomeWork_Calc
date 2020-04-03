@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/temperature"
+        android:icon="@drawable/shape_circular"
+        android:title=""/>
+
+    <item android:id="@+id/humidity"
+        android:icon="@drawable/shape_circular"
+        android:title=""/>
+
+    <item android:id="@+id/PM2_5"
+        android:icon="@drawable/shape_circular"
+        android:title=""/>
+
+    <item android:id="@+id/CO2"
+        android:icon="@drawable/shape_circular"
+        android:title=""/>
+
+</menu>

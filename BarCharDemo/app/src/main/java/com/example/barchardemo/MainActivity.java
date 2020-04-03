@@ -9,6 +9,8 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+
 import java.util.ArrayList;
 import java.util.List;
 /***
@@ -30,30 +32,59 @@ public class MainActivity extends AppCompatActivity {
         mBarChart = findViewById(R.id.bar_chart);
 
         //  柱形图的数据
-        List<BarEntry> entries = new ArrayList<>();
-        for (Integer i = 1; i <= 5; i++) {
+        List<BarEntry> values1 = new ArrayList<>();
+        List<BarEntry> values2 = new ArrayList<>();
+        List<BarEntry> values3 = new ArrayList<>();
 
-            float valueY = i;
-            float valueX = i*10;
-
+        for (Integer i = 0; i < 6; i++) {
             //  添加数据
-            entries.add(new BarEntry(valueY, valueX));
+            values1.add(new BarEntry(i,10*i+05));
+            values2.add(new BarEntry(i,10*i+10));
+            values3.add(new BarEntry(i,10*i+15));
         }
 
         // 添加进图标，设置数据的含义
-        BarDataSet dataSet = new BarDataSet(entries, "Label");
+        BarDataSet dataSet1 = new BarDataSet(values1, "Label");
+        BarDataSet dataSet2 = new BarDataSet(values2, "Labe2");
+        BarDataSet dataSet3 = new BarDataSet(values3, "Labe3");
 
         //  设置柱形的颜色
-        dataSet.setColor(Color.BLUE);
+        dataSet1.setColor(Color.RED);
+        dataSet2.setColor(Color.GREEN);
+        dataSet3.setColor(Color.BLUE);
 
         //  设置值的颜色
-        dataSet.setValueTextColor(Color.RED);
+        dataSet1.setValueTextColor(Color.RED);
+        dataSet2.setValueTextColor(Color.RED);
+        dataSet3.setValueTextColor(Color.RED);
 
-        //  初始化数据
-        BarData barData = new BarData(dataSet);
+        //初始化数据
+        BarData barData = new BarData(dataSet1,dataSet2,dataSet3);
 
-        /*// 是否显示表格颜色(数据以外的背景色)
-        mBarChart.setDrawGridBackground(true);
+        /**
+         * float groupSpace = 0.3f;   //柱状图组之间的间距
+         * float barSpace =  0.05f;  //每条柱状图之间的间距  一组两个柱状图
+         * float barWidth = 0.3f;    //每条柱状图的宽度     一组两个柱状图
+         * (barWidth + barSpace) * barAmount + groupSpace = (x+0)*6+y = (1-y)/6=1
+         * 3个数值 加起来 必须等于 1 即100% 按照百分比来计算 组间距 柱状图间距 柱状图宽度
+         */
+        //需要显示柱状图的类别 数量
+        int barAmount = values1.size();
+
+        //设置组间距占比30% 每条柱状图宽度占比 70% /barAmount  柱状图间距占比 0%
+        //柱状图组之间的间距
+        float groupSpace = 0.5F;
+        float barWidth = (1f - groupSpace) / barAmount;
+        float barSpace = 0f;
+        //设置柱状图宽度
+        barData.setBarWidth(0.166666666666667F);
+        //(起始点、柱状图组间距、柱状图之间间距)
+        barData.groupBars(-0.5f, groupSpace, barSpace);
+
+
+
+        // 是否显示表格颜色(数据以外的背景色)
+        /*mBarChart.setDrawGridBackground(true);
 
         // 表格的的颜色
         mBarChart.setGridBackgroundColor(Color.WHITE);*/
@@ -80,9 +111,6 @@ public class MainActivity extends AppCompatActivity {
         //  是否显示竖直标尺线
         mBarChart.getXAxis().setDrawGridLines(false);
 
-        //  设置横坐标显示的间隔数
-        mBarChart.getXAxis().setLabelCount(5);
-
         //  右侧是否显示Y轴数值
         mBarChart.getAxisRight().setDrawLabels(false);
         mBarChart.getAxisLeft().setDrawLabels(true);
@@ -106,10 +134,24 @@ public class MainActivity extends AppCompatActivity {
 
         //  X轴的位置显示在下方
         XAxis xAxis = mBarChart.getXAxis();
+
+        //重新设置X轴的标注值
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            list.add(String.valueOf(i+1).concat("月"));
+        }
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(list));
+
+        //不显示x轴轴线
         xAxis.setDrawAxisLine(false);
+
+
+        //设置x轴的显示位置
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
-        //  添加数据
+
+        //添加数据
         mBarChart.setData(barData);
+
     }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id ="@+id/fmlayout_main"
+        android:layout_width ="match_parent"
+        android:layout_height ="match_parent">
+    </FrameLayout>
+
+    <!--
+        app:itemBackground：设置底部导航栏的背景颜色,默认是主题的颜色。
+        app:itemIconTint：设置导航栏中图片的颜色。
+        app:itemTextColor：设置导航栏中文字的颜色。
+        app:menu ：设置导航栏布局里的图片和文字-->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        xmlns:android ="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id ="@+id/botmview_main"
+        android:layout_width ="match_parent"
+        android:layout_height ="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu ="@menu/navbottom_menu">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

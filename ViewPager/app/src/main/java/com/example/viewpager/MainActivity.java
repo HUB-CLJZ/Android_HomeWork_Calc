@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         sColer.add(Color.RED);
         sColer.add(Color.BLUE);
         sColer.add(Color.YELLOW);
+
         //添加进适配器
         myPagerAdapter.setData(sColer);
 

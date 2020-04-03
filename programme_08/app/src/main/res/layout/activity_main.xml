@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0099cc"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/menu">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="出行管理"
+            android:textColor="#ffffff"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="测试"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_menu" />
+
+    <TextView
+        android:id="@+id/tv_vehicle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="20dp"
+        android:text="单号出行车辆："
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_menu" />
+
+    <LinearLayout
+        android:id="@+id/line_segmentation"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#8b8b8b"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tv_vehicle"/>
+
+
+    <TextView
+        android:id="@+id/tv_sitting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:text="出行车辆设置："
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_segmentation"/>
+
+    <TextView
+        android:id="@+id/tv_car1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="小车编号：1号"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sitting"/>
+
+    <TextView
+        android:id="@+id/tv_car1_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="开"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/tv_car1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sitting"/>
+
+    <Switch
+        android:id="@+id/sw_car1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/sw_car2"
+        app:layout_constraintLeft_toRightOf="@id/tv_car1_state"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sitting"/>
+
+    <TextView
+        android:id="@+id/tv_car2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="小车编号：2号"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_car1"/>
+
+    <TextView
+        android:id="@+id/tv_car2_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="停"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/tv_car2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_car1"/>
+
+    <Switch
+        android:id="@+id/sw_car2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toRightOf="@id/tv_car2_state"
+        app:layout_constraintTop_toBottomOf="@+id/tv_car1"/>
+
+    <TextView
+        android:id="@+id/tv_car3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="小车编号：3号"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_car2"/>
+
+    <TextView
+        android:id="@+id/tv_car3_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="开"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/tv_car3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_car2"/>
+
+    <Switch
+        android:id="@+id/sw_car3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toRightOf="@id/tv_car3_state"
+        app:layout_constraintTop_toBottomOf="@+id/tv_car2"/>
+
+    <ImageView
+        android:id="@+id/iv_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/green"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="50dp"
+        app:layout_constraintTop_toBottomOf="@id/line_segmentation"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

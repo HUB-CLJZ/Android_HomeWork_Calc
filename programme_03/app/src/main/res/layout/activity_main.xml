@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#589DEB"
+        app:navigationIcon="@drawable/menu">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账单管理"
+            android:textColor="#fff"
+            android:layout_gravity="center"
+            android:textSize="30sp"/>
+    </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:id="@+id/tv_zd"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="账单记录"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="#000"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"
+        app:layout_constraintLeft_toRightOf="@id/tv_zd"
+        android:layout_marginLeft="30dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_ask"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="查询"
+        app:layout_constraintLeft_toRightOf="@id/spinner"/>
+
+    <TableLayout
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/btn_ask"
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:divider="@drawable/line"
+        android:showDividers="beginning|middle|end"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/line"
+            android:showDividers="beginning|middle|end"
+            android:orientation="horizontal">
+            <TextView
+                android:padding="8dp"
+                android:layout_width="0dp"
+                android:text="序号"
+                android:layout_weight="1"
+                android:gravity="center"/>
+            <TextView
+                android:padding="8dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="车号"
+                android:gravity="center"/>
+            <TextView
+                android:padding="8dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textSize="11dp"
+                android:text="支付金额（元）"
+                android:gravity="center"/>
+            <TextView
+                android:padding="8dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="充值时间"
+                android:gravity="center"/>
+        </TableRow>
+    </TableLayout>
+
+
+    <ListView
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/tab"
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

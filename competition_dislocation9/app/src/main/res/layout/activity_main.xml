@@ -20,24 +20,26 @@
             android:layout_gravity="center"
             android:text="车辆违章"
             android:textColor="#ffffff"
-            android:textStyle="bold">
-        </TextView>
+            android:textStyle="bold"/>
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@+id/too_menu"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab"
-        app:layout_constraintTop_toBottomOf="@+id/too_menu"
+        app:layout_constraintTop_toBottomOf="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         app:tabBackground="@color/colorWhite"
         app:tabMode="fixed"
         app:tabTextAppearance="@android:style/TextAppearance.Large"
         app:tabSelectedTextColor="@color/colorGran">
     </com.google.android.material.tabs.TabLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tab" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

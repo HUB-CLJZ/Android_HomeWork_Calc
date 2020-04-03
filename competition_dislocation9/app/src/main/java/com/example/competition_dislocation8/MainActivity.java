@@ -24,6 +24,6 @@ public class MainActivity extends AppCompatActivity {
         MyAdaper myAdaper = new MyAdaper(getSupportFragmentManager(),mData);
         pager.setAdapter(myAdaper);
         //设置viewPager
-        tab.setupWithViewPager(pager);
+//        tab.setupWithViewPager(pager);
     }
 }

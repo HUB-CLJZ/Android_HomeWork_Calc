@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
          * 不调用此方法，数据库中无数据
          */
         addTestData();
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

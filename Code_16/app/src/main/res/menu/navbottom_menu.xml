@@ -1,0 +1,15 @@
+<?xml version ="1.0" encoding ="utf-8" ?>
+<menu xmlns:android ="http://schemas.android.com/apk/res/android">
+    <item
+        android:id ="@+id/navbomitem_sport"
+        android:title="运动" />
+    <item
+        android:id ="@+id/navbomitem_info"
+        android:title =" 资讯 " />
+    <item
+        android:id ="@+id/navbomitem_device"
+        android:title =" 设备 " />
+    <item
+        android:id ="@+id/navbomitem_my"
+        android:title ="我的" />
+</menu>

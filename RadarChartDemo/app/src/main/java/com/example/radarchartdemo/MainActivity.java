@@ -2,9 +2,7 @@ package com.example.radarchartdemo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -12,7 +10,6 @@ import com.github.mikephil.charting.data.RadarData;
 import com.github.mikephil.charting.data.RadarDataSet;
 import com.github.mikephil.charting.data.RadarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
-
 import java.util.ArrayList;
 import java.util.List;
 /***
@@ -24,7 +21,6 @@ import java.util.List;
  * */
 public class MainActivity extends AppCompatActivity {
     private RadarChart mRadarChart;
-    private int[] mColors = {Color.RED, Color.BLACK, Color.GREEN, Color.BLUE, Color.GRAY};
     private XAxis xAxis;
 
     @Override
@@ -73,16 +69,14 @@ public class MainActivity extends AppCompatActivity {
         //设置y轴的标签个数
         yAxis.setLabelCount(6, true);
 
+
         //设置y轴从0f开始
         yAxis.setAxisMinimum(0f);
 
         /*启用绘制Y轴顶点标签，这个是最新添加的功能
          *
-         *
-         *
          */
 
-
         yAxis.setDrawTopYLabelEntry(true);
         //设置字体大小
         yAxis.setTextSize(15f);
@@ -90,10 +84,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         yAxis.setDrawTopYLabelEntry(true);
+
         //设置字体大小
         yAxis.setTextSize(15f);
+
         //设置字体颜色
         yAxis.setTextColor(Color.RED);
+
         //启用线条，如果禁用，则无任何线条
         mRadarChart.setDrawWeb(true);
 
@@ -175,9 +172,38 @@ public class MainActivity extends AppCompatActivity {
         set1.setHighlightCircleOuterRadius(10f);
 
         //添加两条数据
-        RadarData  data = new RadarData(set,set1);
+        RadarData  data = new RadarData(drawAngleCircle(),set,set1);
 
         mRadarChart.setData(data);
         mRadarChart.invalidate();
+    }
+
+    /**
+     * 创建一组虚拟图表数据
+     * @return
+     */
+    private RadarDataSet drawAngleCircle() {
+        List<RadarEntry> yVals = new ArrayList<>();
+        // 各个顶点的图标资源
+        int[] drawables = new int[]{
+                R.drawable.shape_circle_1,
+                R.drawable.shape_circle_2,
+                R.drawable.shape_circle_3,
+                R.drawable.shape_circle_4,
+                R.drawable.shape_circle_5,
+                R.drawable.shape_circle_3
+        };
+        for (int i = 0; i < 6; i++) {
+            RadarEntry radarEntry = new RadarEntry(100F);
+            //为每个数据设置一个图标
+            radarEntry.setIcon(getResources().getDrawable(drawables[i]));
+            yVals.add(radarEntry);
+        }
+        RadarDataSet ds = new RadarDataSet(yVals, "");
+        // 不显示数据连线
+        ds.setColors(Color.TRANSPARENT);
+        // 不绘制数据值
+        ds.setDrawValues(false);
+        return ds;
     }
 }

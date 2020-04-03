@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- shape定义形状，shape="rectangle"表示形状为长方形 -->
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval" >
+    <!-- 设置框内填充颜色 -->
+    <solid android:color="#ababab" />
+
+    <!-- 设置边框宽度和颜色 -->
+    <stroke
+        android:width="1dp"
+        android:color="#2b2b2b"/>
+
+    <size
+        android:width="40dp"
+        android:height="40dp"/>
+</shape>

@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
         initView();
 
         //  大小
-        ArrayList<PieEntry> sizes=new ArrayList<>();
+        ArrayList<PieEntry> sizes =new ArrayList<>();
         sizes.add(new PieEntry(45,"used"));
         sizes.add(new PieEntry(55,"left"));
 
         //  颜色
-        ArrayList<Integer> colors=new ArrayList<>();
+        ArrayList<Integer> colors = new ArrayList<>();
         colors.add(Color.parseColor("#FFBB33"));
         colors.add(Color.parseColor("#CCCCCC"));
 
@@ -39,13 +39,20 @@ public class MainActivity extends AppCompatActivity {
         PieDataSet pieDataSet  =  new PieDataSet(sizes,"");
         pieDataSet.setColors(colors);
 
+        //设置环内/环外显示百分比数据
+        //pieDataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+
+        pieDataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        pieDataSet.setValueLinePart1Length(1.5F);
+
         PieData pieData =  new PieData(pieDataSet);
 
         //  设置数据的大小
         pieData.setValueTextSize(25F);
 
         //  设置所有DataSet内数据实体（百分比）的文本字体格式
-        pieData.setValueFormatter(new PercentFormatter());
+        pieData.setValueFormatter(new PercentFormatter(mPieChart));
+
 
         //  设置图例
         Legend legend_pie = mPieChart.getLegend();
@@ -101,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
 
         //将图表重绘以显示设置的属性和数据
         mPieChart.invalidate();
-
     }
 
     private void initView() {
