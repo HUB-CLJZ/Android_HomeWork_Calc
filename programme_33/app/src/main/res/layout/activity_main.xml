@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--android:singleLine="true"
+        //设置跑马灯效果
+        android:ellipsize="marquee"
+        //需要有焦点才会滚动
+        android:focusable="true"
+        //设置循环滚动为无限循环
+        android:marqueeRepeatLimit="marquee_forever"
+    -->
+    <TextView
+        android:id="@+id/tv_cycle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:textSize="25dp"
+        android:text="沈海高速胶州、菜西服务器封闭施工通知"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

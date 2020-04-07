@@ -24,7 +24,10 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
 
     //选中图片
-    private int[] select_img = {R.drawable.icon_background, R.drawable.icon_background, R.drawable.icon_background, R.drawable.icon_background};
+    private int[] select_img = {R.drawable.icon_background,
+                                R.drawable.icon_background,
+                                R.drawable.icon_background,
+                                R.drawable.icon_background};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -6,13 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3f51b5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/menu">
+
+        <TextView
+            android:id="@+id/tv_jump"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="数据分析"
+            android:textColor="#ffffff" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pie_chart"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tool_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

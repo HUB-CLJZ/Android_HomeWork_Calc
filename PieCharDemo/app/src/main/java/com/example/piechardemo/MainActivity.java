@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         initView();
 
         //  大小
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         colors.add(Color.parseColor("#FFBB33"));
         colors.add(Color.parseColor("#CCCCCC"));
 
-        //  参数：颜色栏显示颜色目录
+        //参数：颜色栏显示颜色目录
         PieDataSet pieDataSet  =  new PieDataSet(sizes,"");
         pieDataSet.setColors(colors);
 
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         //  设置数据的大小
         pieData.setValueTextSize(25F);
 
-        //  设置所有DataSet内数据实体（百分比）的文本字体格式
+        //设置所有DataSet内数据实体（百分比）的文本字体格式
         pieData.setValueFormatter(new PercentFormatter(mPieChart));
 
 

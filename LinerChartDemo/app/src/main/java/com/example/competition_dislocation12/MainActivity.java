@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
      * */
     private LineChart lc;
 
-    private int[] colors = new int[]{Color.RED, Color.YELLOW,Color.BLUE,Color.RED,Color.GREEN,Color.BLUE};
+    private int[] colors = new int[]{Color.GREEN, Color.GREEN,Color.GREEN,Color.GREEN,Color.RED};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +43,8 @@ public class MainActivity extends AppCompatActivity {
         // 模拟数据1
         List<Entry> data = new ArrayList<>();
         List<Entry> dataMin = new ArrayList<>();
-        List<Entry> lineCalibration = new ArrayList<>();
-        //int[] ys1 = new int[] {19,19,16,20,21,21,23,19,19,16,18,15};
 
+        List<Entry> lineCalibration = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             Random random = new Random();
             int number = random.nextInt(22 - 16 + 1) + 16;
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 12; i++) {
             Random random = new Random();
             int number = random.nextInt(24 - 16 + 1) + 16;
-            dataMin.add(new Entry(i, number));
+            dataMin.add(new Entry(i, number,getResources().getDrawable(R.drawable.sub)));
         }
 
         //x轴添加刻度
@@ -68,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
         // 2. 分别通过每一组Entry对象集合的数据创建折线数据集
         LineDataSet lineDataSet1 = new LineDataSet(data, "最高温度");
         LineDataSet lineDataSet2 = new LineDataSet(dataMin, "最低温度");
-        LineDataSet setXLine = new LineDataSet(lineCalibration, "刻度");
+        LineDataSet setXLine = new LineDataSet(lineCalibration, "X轴刻度");
+
 
         //设置刻度的样式
         setXLine.setColor(Color.TRANSPARENT);
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         setXLine.setDrawValues(false);
         setXLine.setDrawCircles(false);
 
+        setXLine.setDrawIcons(true);
 
         //折现的颜色
         lineDataSet1.setColor(Color.parseColor("#ff9224"));

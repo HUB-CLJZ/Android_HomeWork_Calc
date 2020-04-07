@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         webView.getSettings().setAllowContentAccess(true);
 //      webView.loadUrl("https://c-ssl.duitang.com/uploads/item/201208/30/20120830173930_PBfJE.thumb.700_0.jpeg");
 
-        webView.loadUrl("file:///android_asset/index.html");
+            webView.loadUrl("file:///android_asset/index.html");
 
     }
 }

@@ -17,7 +17,10 @@ import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
-//自定义对话框课本62页
+/***
+ * 自定义对话框课本62页
+ * 具体例子见第17题
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Toolbar toolbar;
 

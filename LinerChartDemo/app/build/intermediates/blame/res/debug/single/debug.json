@@ -32,6 +32,10 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\d74b5b498b35fd5cb32d0a6997bb1d3d\\appcompat-1.1.0\\res\\layout\\select_dialog_item_material.xml"
     },
     {
+        "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_sub.png.flat",
+        "source": "H:\\AndroidProject\\LinerChartDemo\\app\\src\\main\\res\\drawable-v24\\sub.png"
+    },
+    {
         "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\f01b27bb220ecb79298884ef36a7a2fb\\core-1.1.0\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
     },
@@ -348,12 +352,12 @@
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\d74b5b498b35fd5cb32d0a6997bb1d3d\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_36dp.png.flat",
-        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\d74b5b498b35fd5cb32d0a6997bb1d3d\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_36dp.png"
-    },
-    {
         "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\d74b5b498b35fd5cb32d0a6997bb1d3d\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_36dp.png.flat",
+        "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\d74b5b498b35fd5cb32d0a6997bb1d3d\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
         "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_alert_dialog_title_material.xml.flat",
@@ -654,6 +658,10 @@
     {
         "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\d74b5b498b35fd5cb32d0a6997bb1d3d\\appcompat-1.1.0\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\layout_item.xml.flat",
+        "source": "H:\\AndroidProject\\LinerChartDemo\\app\\src\\main\\res\\layout\\item.xml"
     },
     {
         "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -1254,6 +1262,10 @@
     {
         "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-2\\files-2.1\\d74b5b498b35fd5cb32d0a6997bb1d3d\\appcompat-1.1.0\\res\\drawable-ldrtl-mdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable_layer_list_y.xml.flat",
+        "source": "H:\\AndroidProject\\LinerChartDemo\\app\\src\\main\\res\\drawable\\layer_list_y.xml"
     },
     {
         "merged": "H:\\AndroidProject\\LinerChartDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",

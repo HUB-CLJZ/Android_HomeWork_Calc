@@ -6,9 +6,9 @@
         android:top="5dp"
         >
         <rotate
-            android:fromDegrees="-90"
-            android:pivotX="50%"
-            android:pivotY="50%">
+            android:fromDegrees="90"
+                android:pivotX="50%"
+                android:pivotY="50%">
             <shape
                 android:shape="line">
                 <!--图形颜色-->

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#589DEB"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/grid"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/menu">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="详细信息"
+            android:textColor="#fff"
+            android:textSize="30dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_introduce"
+        app:layout_constraintTop_toBottomOf="@id/toolBar" />
+
+    <TextView
+        android:id="@+id/tv_introduce"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="top"
+        android:text="景点介绍："
+        android:textSize="18dp"
+        app:layout_constraintLeft_toRightOf="@id/iv_icon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolBar" />
+
+    <TextView
+        android:id="@+id/tv_pinglun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="游客点评"
+        android:textSize="18dp"
+        app:layout_constraintLeft_toLeftOf="@id/tv_introduce"
+        app:layout_constraintTop_toBottomOf="@id/tv_introduce" />
+
+    <RatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:progressDrawable="@drawable/ratingbar_full"
+        android:stepSize="0"
+        app:layout_constraintLeft_toLeftOf="@id/tv_introduce"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pinglun" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系电话:"
+        app:layout_constraintLeft_toLeftOf="@id/tv_introduce"
+        app:layout_constraintTop_toBottomOf="@id/rating_bar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval" >
     <!-- 设置框内填充颜色 -->
-    <solid android:color="#ffffff" />
+    <solid android:color="#fff" />
 
     <!-- 设置边框宽度和颜色 -->
     <stroke

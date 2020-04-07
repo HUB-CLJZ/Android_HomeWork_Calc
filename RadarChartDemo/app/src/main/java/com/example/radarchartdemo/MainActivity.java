@@ -71,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         //设置y轴从0f开始
-        yAxis.setAxisMinimum(0f);
+        yAxis.setAxisMinimum(0F);
+        yAxis.setAxisMaximum(80F);
 
         /*启用绘制Y轴顶点标签，这个是最新添加的功能
          *
@@ -80,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         yAxis.setDrawTopYLabelEntry(true);
         //设置字体大小
         yAxis.setTextSize(15f);
-
 
 
         yAxis.setDrawTopYLabelEntry(true);
@@ -194,14 +194,14 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.shape_circle_3
         };
         for (int i = 0; i < 6; i++) {
-            RadarEntry radarEntry = new RadarEntry(100F);
+            RadarEntry radarEntry = new RadarEntry(80F);
             //为每个数据设置一个图标
             radarEntry.setIcon(getResources().getDrawable(drawables[i]));
             yVals.add(radarEntry);
         }
         RadarDataSet ds = new RadarDataSet(yVals, "");
         // 不显示数据连线
-        ds.setColors(Color.TRANSPARENT);
+        ds.setColors(Color.RED);
         // 不绘制数据值
         ds.setDrawValues(false);
         return ds;

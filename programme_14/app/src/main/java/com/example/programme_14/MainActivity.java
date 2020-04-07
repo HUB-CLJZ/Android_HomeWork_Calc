@@ -1,14 +1,12 @@
 package com.example.programme_14;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
@@ -207,14 +205,14 @@ public class MainActivity extends AppCompatActivity {
         //添加进图表
         lineChart.invalidate();
         lineChart.setData(lineData);
+        height_temp.clear();
+        low_temp.clear();
     }
 
     private void setClick() {
         mIvRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                height_temp.clear();
-                low_temp.clear();
                 //重新获取温度
                 setTemp(URL_TianQi);
                 Toast.makeText(MainActivity.this, "刷新成功", Toast.LENGTH_SHORT).show();
@@ -224,9 +222,11 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
             }
         });
+
+
     }
 
     /**
